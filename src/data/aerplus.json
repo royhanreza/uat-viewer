@@ -1,0 +1,3223 @@
+[
+    {
+        "case_id": "AREA_001",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Form \"Tambah Kode Wilayah\" tampil lengkap saat tombol tambah diklik",
+        "test_steps": [
+            "Buka menu Area Depot",
+            "Klik tombol Tambah Kode Wilayah"
+        ],
+        "expected_result": "Muncul pop-up \"Tambah Kode Wilayah\" dengan field: Provinsi, Kota, Area, Kode Area, Keterangan, tombol Batal dan Simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_002",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Tambah kode wilayah baru dengan data lengkap dan valid",
+        "test_steps": [
+            "Buka menu Area Depot",
+            "Klik Tambah Kode Wilayah",
+            "Pilih Provinsi",
+            "Pilih Kota/Kabupaten",
+            "Isi Area",
+            "Isi Kode Area dengan format kode yang disepakati (mis. JKT-TJP-)",
+            "Isi Keterangan",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menyimpan data, menutup pop-up (jika sesuai desain), dan menampilkan baris baru di tabel Area Depot dengan data yang sesuai input",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_003",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Validasi: field Provinsi wajib diisi",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Biarkan Provinsi kosong",
+            "Isi field lain dengan data valid",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan pesan bahwa Provinsi wajib dipilih; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_004",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Validasi: field Kota/Kabupaten wajib diisi",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Pilih Provinsi",
+            "Biarkan Kota/Kabupaten kosong",
+            "Isi field lain dengan data valid",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan pesan bahwa Kota/Kabupaten wajib dipilih; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_005",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Validasi: field Area wajib diisi",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Pilih Provinsi dan Kota/Kabupaten",
+            "Biarkan Area kosong",
+            "Isi Kode Area dan Keterangan",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan pesan bahwa Area wajib diisi; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_006",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Validasi: field Kode Area wajib diisi",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Isi semua field kecuali Kode Area",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan pesan bahwa Kode Area wajib diisi; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_007",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Validasi: kode area duplikat tidak boleh disimpan",
+        "test_steps": [
+            "Identifikasi satu Kode Area yang sudah ada di tabel (mis. JKT-GGP-)",
+            "Buka Tambah Kode Wilayah",
+            "Isi form dengan Kode Area duplikat tersebut",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan pesan bahwa Kode Area sudah terdaftar / duplikat; data baru tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_008",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Tombol Batal: Membatalkan pengisian data",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Isi beberapa field dengan data (tidak perlu lengkap)",
+            "Klik Batal"
+        ],
+        "expected_result": "Pop-up tertutup, tidak ada data baru yang tersimpan di tabel Area Depot",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_009",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Relasi Provinsi dan Kota: daftar Kota menyesuaikan Provinsi yang dipilih",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Pilih satu Provinsi",
+            "Buka dropdown Kota/Kabupaten"
+        ],
+        "expected_result": "Daftar Kota/Kabupaten yang muncul hanya untuk provinsi yang dipilih (tidak menampilkan kota dari provinsi lain)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AREA_010",
+        "module": "Area - Tambah Kode Wilayah",
+        "test_case": "Panjang dan format input Kode Area sesuai kebutuhan bisnis",
+        "test_steps": [
+            "Buka Tambah Kode Wilayah",
+            "Isi Kode Area dengan nilai yang memenuhi format yang disepakati (mis. kombinasi huruf besar dan tanda hubung, contoh JKT-TNA-)",
+            "Klik Simpan"
+        ],
+        "expected_result": "Sistem menerima format Kode Area sesuai aturan (tidak terpotong dan tidak menampilkan error selama format valid) dan data tersimpan normal",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POE_001",
+        "module": "Pembelian - Estimasi Pesanan Pembelian (Buat)",
+        "test_case": "Navigasi menu: halaman \"Estimasi Pesanan Pembelian\" dapat diakses dan tombol \"Buat Estimasi Pesanan\" tersedia untuk user berhak",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian (minimal permission \"view_purchase_order_estimation\")",
+            "Buka menu Pembelian > Pembelian Ke Supplier > Estimasi Pesanan",
+            "Pastikan halaman list \"Estimasi Pesanan Pembelian\" tampil",
+            "Klik tombol \"Buat Estimasi Pesanan\""
+        ],
+        "expected_result": "Halaman list tampil normal dan tombol \"Buat Estimasi Pesanan\" mengarahkan ke halaman \"Tambah Estimasi Pesanan Pembelian\" (/purchase-order-estimation/create)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POE_002",
+        "module": "Pembelian - Estimasi Pesanan Pembelian (Buat)",
+        "test_case": "Hitung estimasi: tombol \"Hitung\" mengisi Total Rata-rata Penjualan dan Pending Transfer Barang pada tabel",
+        "test_steps": [
+            "Buka halaman \"Tambah Estimasi Pesanan Pembelian\"",
+            "Klik tombol \"Hitung\"",
+            "Perhatikan kolom \"Total Rata-rata Penjualan\" dan \"Pending Transfer Barang\" pada setiap baris barang"
+        ],
+        "expected_result": "Sistem mengambil perhitungan dari endpoint estimation dan mengisi nilai di kolom \"Total Rata-rata Penjualan\" serta \"Pending Transfer Barang\" (nilai terisi/terupdate, bukan tetap 0/kosong)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POE_003",
+        "module": "Pembelian - Estimasi Pesanan Pembelian (Buat)",
+        "test_case": "Validasi: klik \"Simpan\" tanpa melakukan \"Hitung\" ditolak",
+        "test_steps": [
+            "Buka halaman \"Tambah Estimasi Pesanan Pembelian\"",
+            "Tanpa klik tombol \"Hitung\"",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan peringatan \"Klik tombol hitung terlebih dahulu\"; tidak ada data estimasi yang tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POE_004",
+        "module": "Pembelian - Estimasi Pesanan Pembelian (Buat)",
+        "test_case": "Validasi: setelah \"Hitung\", semua barang kosong (tidak ada total pesanan) tidak boleh disimpan",
+        "test_steps": [
+            "Buka halaman \"Tambah Estimasi Pesanan Pembelian\"",
+            "Klik tombol \"Hitung\" sampai nilai rata-rata terisi",
+            "Biarkan semua input \"Tambahan\" kosong (tidak mengisi tambahan untuk semua barang)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan peringatan \"Barang yang akan dipesan tidak boleh kosong semua\"; tidak ada data estimasi yang tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POE_005",
+        "module": "Pembelian - Estimasi Pesanan Pembelian (Buat)",
+        "test_case": "Simpan estimasi berhasil (minimal 1 barang diisi): sistem menyimpan dan redirect ke halaman edit estimasi",
+        "test_steps": [
+            "Buka halaman \"Tambah Estimasi Pesanan Pembelian\"",
+            "Klik tombol \"Hitung\"",
+            "Pada minimal 1 baris barang, isi field \"Tambahan\" (mis. 0 atau 10)",
+            "Pastikan kolom \"Total\" dan \"Pembulatan (per 1k)\" terhitung",
+            "Klik tombol \"Simpan\" lalu konfirmasi \"Simpan\" pada pop-up"
+        ],
+        "expected_result": "Sistem menyimpan data estimasi (insert per barang), menampilkan notifikasi sukses, dan mengarahkan ke halaman edit estimasi (/purchase-order-estimation/{id}/edit). Nilai \"Pembulatan (per 1k)\" merupakan pembulatan ke kelipatan 1000 dari \"Total\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_001",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Akses halaman: form \"Pesanan Pembelian v4\" dapat dibuka dari menu Pesanan",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian (minimal permission \"view_purchase_order\")",
+            "Buka menu Pembelian > Pembelian Ke Supplier > Pesanan",
+            "Klik tombol buat pesanan (yang mengarah ke /purchase-orders/create-v4)"
+        ],
+        "expected_result": "Halaman \"Pesanan Pembelian v4\" tampil dan menampilkan section General + tab Barang/Biaya serta tombol \"Buat Pesanan Pembelian\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_002",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Buat pesanan berhasil (happy path minimal): data tersimpan dan kembali ke halaman list pesanan",
+        "test_steps": [
+            "Buka halaman /purchase-orders/create-v4",
+            "Pilih Supplier",
+            "Isi Tanggal",
+            "Pilih Syarat Pembayaran (atau biarkan Custom lalu isi Tgl.Jatuh Tempo)",
+            "Isi Disetujui Oleh",
+            "Pilih CV lalu pilih Depot",
+            "Isi Tgl.Pengiriman",
+            "Pada tab Barang, klik \"Tambah Barang\" lalu pilih 1 barang",
+            "Isi QTY dan pastikan Harga Satuan > 0 (otomatis terisi dari master jika ada)",
+            "Klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menyimpan pesanan pembelian, menampilkan notifikasi sukses (mis. \"Data telah tersimpan\"), dan redirect ke halaman list pesanan (/purchase-orders). Nomor PO terbentuk dari template nomor + counter harian",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_003",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Validasi: Supplier wajib dipilih sebelum submit",
+        "test_steps": [
+            "Buka halaman /purchase-orders/create-v4",
+            "Biarkan Supplier kosong",
+            "Isi field lain seperlunya",
+            "Klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Supplier belum dipilih\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_004",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Validasi: CV, Depot, dan Tgl.Pengiriman wajib diisi",
+        "test_steps": [
+            "Buka halaman /purchase-orders/create-v4",
+            "Isi data minimal (Supplier, Tanggal, Syarat Pembayaran, Disetujui Oleh)",
+            "Biarkan CV kosong lalu klik \"Buat Pesanan Pembelian\"",
+            "Pilih CV tetapi biarkan Depot kosong lalu klik \"Buat Pesanan Pembelian\"",
+            "Pilih CV dan Depot tetapi biarkan Tgl.Pengiriman kosong lalu klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan sesuai kondisi: \"CV belum dipilih\" / \"Depot belum dipilih\" / \"Tanggal pengiriman, belum diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_005",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Validasi: nilai pesanan (Total) tidak boleh 0 atau kurang",
+        "test_steps": [
+            "Buka halaman /purchase-orders/create-v4",
+            "Isi field wajib (Supplier, Tanggal, Syarat Pembayaran/atau isi Tgl.Jatuh Tempo, Disetujui Oleh, CV, Depot, Tgl.Pengiriman)",
+            "Jangan menambahkan barang (atau biarkan QTY/Harga sehingga total tetap 0)",
+            "Klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Nilai pesanan tidak boleh sama dengan atau kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_006",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Validasi: diskon melebihi batas ditolak",
+        "test_steps": [
+            "Buka halaman /purchase-orders/create-v4",
+            "Isi field wajib minimal",
+            "Tambahkan 1 barang dengan QTY dan Harga Satuan valid",
+            "Isi Diskon per baris > 100 (mis. 101) atau set Diskon header persentase > 100",
+            "Klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Diskon melebihi batas\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "POV4_007",
+        "module": "Pembelian - Pesanan Pembelian (Buat v4)",
+        "test_case": "Validasi: jika barang ditandai Aktiva, akun aktiva wajib dipilih",
+        "test_steps": [
+            "Buka halaman /purchase-orders/create-v4",
+            "Isi field wajib minimal",
+            "Tambahkan 1 barang yang bertipe aktiva (atau aktifkan toggle \"Aktiva\" pada baris barang)",
+            "Biarkan pilihan akun aktiva kosong",
+            "Klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Akun aktiva belum dipilih untuk barang ke-1\" (atau sesuai urutan baris); data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_001",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Navigasi: halaman \"Buat Faktur Pembelian\" (v4) dapat dibuka dari menu Faktur",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian (minimal permission \"view_purchase_invoices\")",
+            "Buka menu Pembelian > Pembelian Ke Supplier > Faktur (halaman /v2/purchase-invoices)",
+            "Klik tombol \"Buat Faktur Pembelian V2\""
+        ],
+        "expected_result": "Sistem membuka halaman form pembuatan faktur pembelian v4 di /v3/purchase-invoices/create-v2 dan menampilkan field General + dropdown Pesanan + tab Barang/Biaya serta tombol \"Buat Faktur Pembelian\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_002",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Buat faktur berhasil (happy path): pilih Supplier + Pesanan, isi Qty faktur, submit sukses dan kembali ke list",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Pilih Supplier",
+            "Pada dropdown \"Pesanan\", pilih 1 nomor PO yang masih belum selesai difaktur",
+            "Pastikan detail pesanan tampil dan daftar barang terisi",
+            "Isi/ubah kolom QTY pada minimal 1 item agar > 0 dan tidak melebihi sisa qty yang dapat diproses",
+            "Pastikan field wajib: Tanggal Pengiriman dan Disetujui Oleh terisi",
+            "Klik tombol \"Buat Faktur Pembelian\""
+        ],
+        "expected_result": "Sistem menyimpan faktur pembelian, menampilkan notifikasi sukses (mis. \"Data telah tersimpan\"), dan redirect ke halaman list faktur (/v2/purchase-invoices)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_003",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Validasi: Supplier wajib dipilih",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Biarkan Supplier kosong",
+            "Klik \"Buat Faktur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Supplier belum dipilih\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_004",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Validasi: Pesanan (PO) wajib dipilih",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Pilih Supplier",
+            "Jangan memilih nomor PO pada dropdown Pesanan",
+            "Klik \"Buat Faktur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Pesanan(PO) belum dipilih\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_005",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Validasi: Tanggal Pengiriman dan Disetujui Oleh wajib diisi",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Pilih Supplier dan pilih 1 nomor PO",
+            "Kosongkan Tanggal Pengiriman lalu klik \"Buat Faktur Pembelian\"",
+            "Isi Tanggal Pengiriman, kosongkan Disetujui Oleh lalu klik \"Buat Faktur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan sesuai kondisi: \"Tanggal pengiriman, belum diisi\" / \"Disetujui oleh, belum diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_006",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Validasi: nilai faktur (Total) tidak boleh 0 atau kurang",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Pilih Supplier dan pilih 1 nomor PO",
+            "Set kolom QTY menjadi 0 untuk semua item (atau pastikan total menjadi 0)",
+            "Klik \"Buat Faktur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"Nilai faktur tidak boleh sama dengan atau kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_007",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Validasi: QTY faktur tidak boleh melebihi sisa qty yang dapat diproses dari pesanan",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Pilih Supplier dan pilih 1 nomor PO",
+            "Pada salah satu item, isi QTY sehingga (QTY + QTY Difaktur) > QTY Pesanan",
+            "Klik \"Buat Faktur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan \"QTY melebihi jumlah yang dapat diproses\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PIV4_008",
+        "module": "Pembelian - Faktur Pembelian (Buat v4)",
+        "test_case": "Validasi RAB: jika item diaktifkan RAB, user wajib memilih RAB (dan kategori estimasi bila tersedia)",
+        "test_steps": [
+            "Buka halaman /v3/purchase-invoices/create-v2",
+            "Pilih Supplier dan pilih 1 nomor PO sampai daftar barang tampil",
+            "Aktifkan toggle \"RAB\" pada salah satu baris barang",
+            "Pada modal RAB, klik Simpan tanpa memilih RAB",
+            "Aktifkan lagi toggle RAB, pilih RAB namun (jika daftar kategori muncul) tidak memilih kategori estimasi, lalu klik Simpan"
+        ],
+        "expected_result": "Sistem menolak konfigurasi RAB dan menampilkan peringatan \"Pilih RAB terlebih dahulu\"; dan jika kategori estimasi tersedia maka menampilkan peringatan \"Pilih kategori estimasi (item pengurang) untuk RAB\". Status RAB pada baris kembali non-aktif bila validasi gagal",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PPV5_001",
+        "module": "Pembelian - Pembayaran Pembelian (Buat v5)",
+        "test_case": "Navigasi: halaman \"Buat Pembayaran Pembelian\" (v5) dapat diakses dari menu Pembayaran",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian (minimal permission \"view_purchase_payments\")",
+            "Buka menu Pembelian > Pembelian Ke Supplier > Pembayaran (halaman /purchase-payments)",
+            "Klik tombol \"Buat Pembayaran Pembelian V2\""
+        ],
+        "expected_result": "Sistem membuka halaman form pembayaran di /purchase-payments/create-v5 dan menampilkan field utama: Pilih Sumber, (Pilih CV jika Faktur CV), Pembayaran Ke (Supplier), Bayar Dari, Metode Bayar, Tanggal Bayar, Bukti Bayar, serta tabel Tagihan dan tombol \"Buat Pembayaran Pembelian\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PPV5_002",
+        "module": "Pembelian - Pembayaran Pembelian (Buat v5)",
+        "test_case": "Muat tagihan: daftar tagihan terfilter sesuai Supplier (dan CV bila pilih Faktur CV)",
+        "test_steps": [
+            "Buka halaman /purchase-payments/create-v5",
+            "Pada \"Pilih Sumber\" pilih \"Faktur CV\"",
+            "Pilih CV",
+            "Pilih Supplier pada \"Pembayaran Ke\"",
+            "Tunggu sampai tabel Tagihan terisi"
+        ],
+        "expected_result": "Sistem menampilkan daftar tagihan (invoice) yang sesuai filter (supplier, dan cv bila mode Faktur CV) dengan kolom Total, Terutang, dan input Jumlah Bayar; tidak menampilkan tagihan milik supplier/cv lain",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PPV5_003",
+        "module": "Pembelian - Pembayaran Pembelian (Buat v5)",
+        "test_case": "Buat pembayaran berhasil (happy path): pilih invoice dan lakukan pembayaran parsial/total",
+        "test_steps": [
+            "Buka halaman /purchase-payments/create-v5",
+            "Pilih Sumber (default: Faktur CV), pilih CV (jika tampil), dan pilih Supplier",
+            "Pilih Bayar Dari (akun sumber pembayaran)",
+            "Pilih Metode Bayar (jika Transfer, pilih Rekening Supplier)",
+            "Pastikan Tanggal Bayar terisi",
+            "Pada tabel Tagihan, centang minimal 1 invoice lalu isi Jumlah Bayar (<= Terutang) untuk invoice tersebut",
+            "Pastikan nilai \"Nilai Bayar\" ter-update > 0",
+            "Klik tombol \"Buat Pembayaran Pembelian\""
+        ],
+        "expected_result": "Sistem menyimpan pembayaran (meng-attach invoice yang dipilih), menampilkan notifikasi sukses, dan redirect ke halaman list pembayaran (/purchase-payments)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PPV5_004",
+        "module": "Pembelian - Pembayaran Pembelian (Buat v5)",
+        "test_case": "Validasi: Nilai bayar tidak boleh 0 atau kurang",
+        "test_steps": [
+            "Buka halaman /purchase-payments/create-v5",
+            "Muat daftar tagihan sampai ada invoice",
+            "Centang 1 invoice tetapi isi Jumlah Bayar = 0",
+            "Klik tombol \"Buat Pembayaran Pembelian\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Nilai bayar tidak boleh sama dengan atau kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PPV5_005",
+        "module": "Pembelian - Pembayaran Pembelian (Buat v5)",
+        "test_case": "Validasi: jumlah bayar per invoice tidak boleh melebihi jumlah terutang",
+        "test_steps": [
+            "Buka halaman /purchase-payments/create-v5",
+            "Muat daftar tagihan sampai ada invoice",
+            "Centang 1 invoice dan isi Jumlah Bayar lebih besar dari nilai Terutang invoice tersebut",
+            "Klik tombol \"Buat Pembayaran Pembelian\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Jumlah bayar tidak boleh melebihi jumlah terutang\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_001",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Navigasi: halaman \"Buat Penerimaan Barang\" (v3) dapat diakses dari menu Penerimaan",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian (minimal permission \"view_purchase_receipt\")",
+            "Buka menu Pembelian > Pembelian Ke Supplier > Penerimaan (halaman /v2/goods-receipts)",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem membuka halaman form penerimaan barang v3 di /v3/goods-receipts/create dan menampilkan field General (Supplier, Tanggal, No Surat Jalan) serta dropdown pemilihan Faktur dan tabel Barang",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_002",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Ambil barang dari Faktur: pilih Supplier lalu pilih Faktur untuk memuat detail dan daftar barang",
+        "test_steps": [
+            "Buka halaman /v3/goods-receipts/create",
+            "Pilih Supplier pada field \"Terima dari\"",
+            "Pada dropdown \"Faktur\", pilih 1 nomor faktur yang tersedia",
+            "Perhatikan section \"DETAIL FAKTUR\" dan tabel barang"
+        ],
+        "expected_result": "Sistem menampilkan detail faktur serta memuat daftar barang ke tabel. Informasi CV dan Outlet (dari faktur) tampil pada detail faktur",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_003",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Buat penerimaan berhasil (happy path): pilih faktur, pilih barang, isi QTY diterima, simpan",
+        "test_steps": [
+            "Buka halaman /v3/goods-receipts/create",
+            "Pilih Supplier",
+            "Pilih 1 nomor Faktur sampai daftar barang tampil",
+            "Isi \"No Surat Jalan\"",
+            "Centang minimal 1 barang, lalu isi QTY > 0 dan tidak melebihi jumlah yang dapat diterima",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem menyimpan data penerimaan barang, menampilkan notifikasi sukses, dan redirect ke halaman list penerimaan (/v2/goods-receipts)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_004",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Validasi: total kuantitas diterima tidak boleh 0 atau kurang",
+        "test_steps": [
+            "Buka halaman /v3/goods-receipts/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Jangan mencentang barang manapun (atau centang barang tetapi isi QTY = 0)",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Total kuantitas yang diterima tidak boleh sama dengan atau kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_005",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Validasi: kuantitas yang dimasukkan tidak boleh melebihi jumlah yang dapat diterima",
+        "test_steps": [
+            "Buka halaman /v3/goods-receipts/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Centang 1 barang",
+            "Isi QTY lebih besar dari sisa yang dapat diterima (mis. melebihi QTY Faktur - QTY Diterima - QTY Diretur)",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Kuantitas yang dimasukkan melebihi jumlah yang dapat diterima\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_006",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Validasi server: No Surat Jalan wajib diisi",
+        "test_steps": [
+            "Buka halaman /v3/goods-receipts/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Centang 1 barang dan isi QTY valid",
+            "Biarkan field \"No Surat Jalan\" kosong",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan karena No Surat Jalan wajib diisi (menampilkan error dari server) dan data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRV3_007",
+        "module": "Pembelian - Penerimaan Barang (Buat v3)",
+        "test_case": "Worst case: barang tanpa akun persediaan memunculkan konfirmasi untuk menyimpan tanpa jurnal",
+        "test_steps": [
+            "Buka halaman /v3/goods-receipts/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Centang barang yang belum memiliki akun persediaan (inventory account) lalu isi QTY valid",
+            "Klik tombol \"Buat Penerimaan Barang\"",
+            "Pada pop-up konfirmasi, klik \"Simpan\" untuk melanjutkan"
+        ],
+        "expected_result": "Sistem menampilkan pop-up konfirmasi (peringatan akun persediaan kosong). Jika user memilih \"Simpan\", sistem tetap menyimpan penerimaan barang dan kembali ke halaman list (/v2/goods-receipts)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PRV2_001",
+        "module": "Pembelian - Retur Pembelian (Buat v2)",
+        "test_case": "Navigasi: halaman \"Buat Retur Pembelian\" dapat diakses dari menu Retur",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian (minimal permission \"view_retur\")",
+            "Buka menu Pembelian > Pembelian Ke Supplier > Retur (halaman /v2/purchase-returns)",
+            "Klik tombol \"Buat Retur Pembelian\""
+        ],
+        "expected_result": "Sistem membuka halaman create retur di /v2/purchase-returns/create dan menampilkan field General (Supplier, Tanggal, Keterangan) serta dropdown pemilihan Faktur dan tabel Barang",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PRV2_002",
+        "module": "Pembelian - Retur Pembelian (Buat v2)",
+        "test_case": "Ambil data dari Faktur: pilih Supplier lalu pilih Faktur untuk memuat detail dan daftar barang",
+        "test_steps": [
+            "Buka halaman /v2/purchase-returns/create",
+            "Pilih Supplier pada field \"Terima dari\"",
+            "Pada dropdown \"Faktur\", pilih 1 nomor faktur yang tersedia",
+            "Perhatikan section \"DETAIL FAKTUR\" dan tabel barang"
+        ],
+        "expected_result": "Sistem menampilkan detail faktur dan memuat daftar barang ke tabel. Kolom QTY Pesanan/QTY Diterima/QTY Diretur tampil sesuai data faktur",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PRV2_003",
+        "module": "Pembelian - Retur Pembelian (Buat v2)",
+        "test_case": "Buat retur berhasil (happy path): pilih faktur, pilih barang, simpan",
+        "test_steps": [
+            "Buka halaman /v2/purchase-returns/create",
+            "Pilih Supplier",
+            "Pilih 1 nomor Faktur sampai daftar barang tampil",
+            "Pastikan minimal 1 barang terpilih untuk diretur",
+            "Klik tombol \"Buat Retur Pembelian\""
+        ],
+        "expected_result": "Sistem menyimpan data retur pembelian, menampilkan notifikasi sukses (mis. \"Data telah tersimpan\"), dan redirect ke halaman list retur (/v2/purchase-returns)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PRV2_004",
+        "module": "Pembelian - Retur Pembelian (Buat v2)",
+        "test_case": "Validasi: kuantitas retur tidak boleh melebihi jumlah yang dapat diretur",
+        "test_steps": [
+            "Buka halaman /v2/purchase-returns/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Pada salah satu barang, set QTY retur sehingga melebihi sisa yang dapat diretur (mis. > QTY Pesanan - QTY Diterima - QTY Diretur)",
+            "Klik tombol \"Buat Retur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Kuantitas yang dimasukkan melebihi jumlah yang dapat diterima\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PRV2_005",
+        "module": "Pembelian - Retur Pembelian (Buat v2)",
+        "test_case": "Validasi: minimal 1 barang harus dipilih untuk diretur",
+        "test_steps": [
+            "Buka halaman /v2/purchase-returns/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Uncheck semua barang (tidak ada barang yang dipilih)",
+            "Klik tombol \"Buat Retur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan error \"Pilih barang\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PRV2_006",
+        "module": "Pembelian - Retur Pembelian (Buat v2)",
+        "test_case": "Validasi server: tanggal wajib diisi",
+        "test_steps": [
+            "Buka halaman /v2/purchase-returns/create",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Kosongkan field Tanggal",
+            "Klik tombol \"Buat Retur Pembelian\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan karena Tanggal wajib diisi (menampilkan error dari server) dan data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_PAY_001",
+        "module": "Pembelian - Permintaan Barang CV (Buat Pembayaran)",
+        "test_case": "Navigasi: halaman \"Buat Pembayaran - Permintaan Barang\" dapat diakses dari menu Pembayaran (Permintaan Barang CV)",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian Permintaan Barang CV",
+            "Buka menu Pembelian > Pembelian Permintaan Barang CV > Pembayaran (halaman /good-request-groups/payment-requests)",
+            "Klik tombol buat pembayaran (menuju /good-request-groups/create-payment)"
+        ],
+        "expected_result": "Sistem membuka halaman form \"Buat Pembayaran - Permintaan Barang\" di /good-request-groups/create-payment dan menampilkan field CV, Akun Bayar, HO Penerima, Akun Penerima, tabel Tagihan, serta tombol \"Simpan Data Pembayaran\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_PAY_002",
+        "module": "Pembelian - Permintaan Barang CV (Buat Pembayaran)",
+        "test_case": "Muat tagihan: pilih CV dan HO Penerima menampilkan daftar tagihan yang masih terutang",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-payment",
+            "Pilih CV",
+            "Pilih HO Penerima (Supplier pada bagian penerima)",
+            "Tunggu sampai tabel Tagihan terisi"
+        ],
+        "expected_result": "Sistem menampilkan daftar tagihan (invoice) yang sesuai filter CV + HO Penerima dan masih memiliki sisa terutang (remaining > 0)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_PAY_003",
+        "module": "Pembelian - Permintaan Barang CV (Buat Pembayaran)",
+        "test_case": "Simpan pembayaran berhasil (happy path): pilih akun bayar & penerima, pilih invoice, simpan",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-payment",
+            "Pilih CV",
+            "Pilih Akun Bayar",
+            "Pilih HO Penerima",
+            "Pilih Akun Penerima (akun bank supplier penerima)",
+            "Pada tabel Tagihan, centang minimal 1 invoice (sehingga Nilai Bayar terisi > 0)",
+            "Klik tombol \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menyimpan data pembayaran grup (PPG), menampilkan notifikasi sukses \"Data telah tersimpan\", dan redirect ke halaman /good-request-groups/payment-requests. Invoice yang dipilih ter-link ke group pembayaran",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_PAY_004",
+        "module": "Pembelian - Permintaan Barang CV (Buat Pembayaran)",
+        "test_case": "Validasi: Nilai bayar tidak boleh 0 atau kurang",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-payment",
+            "Pilih CV, Akun Bayar, HO Penerima, dan Akun Penerima",
+            "Jangan mencentang invoice manapun",
+            "Klik tombol \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Nilai bayar tidak boleh sama dengan atau kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_PAY_005",
+        "module": "Pembelian - Permintaan Barang CV (Buat Pembayaran)",
+        "test_case": "Validasi: Akun Bayar, HO Penerima, dan Akun Penerima wajib dipilih",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-payment",
+            "Pilih CV dan centang minimal 1 invoice (agar Nilai Bayar > 0)",
+            "Biarkan Akun Bayar kosong lalu klik \"Simpan Data Pembayaran\"",
+            "Pilih Akun Bayar, biarkan HO Penerima kosong lalu klik \"Simpan Data Pembayaran\"",
+            "Pilih HO Penerima, biarkan Akun Penerima kosong lalu klik \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error sesuai kondisi: \"Akun Bayar, harus dipilih.\" / \"HO Penerima, harus dipilih.\" / \"Akun Penerima, harus dipilih.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_PAY_006",
+        "module": "Pembelian - Permintaan Barang CV (Buat Pembayaran)",
+        "test_case": "Validasi: jumlah bayar tidak boleh melebihi jumlah terutang",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-payment",
+            "Pilih CV, Akun Bayar, HO Penerima, dan Akun Penerima",
+            "Pada salah satu invoice, centang invoice lalu set nilai bayar lebih besar dari Terutang (remaining)",
+            "Klik tombol \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Jumlah bayar tidak boleh melebihi jumlah terutang\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_GR_001",
+        "module": "Pembelian - Permintaan Barang CV (Buat Penerimaan)",
+        "test_case": "Navigasi: halaman \"Buat Penerimaan Barang\" (by request) dapat diakses dari menu Penerimaan (Permintaan Barang CV)",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian Permintaan Barang CV",
+            "Buka menu Pembelian > Pembelian Permintaan Barang CV > Penerimaan (halaman /good-request-groups/goods-receipt)",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem membuka halaman create penerimaan by request di /good-request-groups/create-receipt dan menampilkan field wajib (Supplier, Tanggal, No Surat Jalan, Tgl Pengiriman, Diterima Oleh), dropdown Faktur, tabel Barang, dan tombol \"Buat Penerimaan Barang\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_GR_002",
+        "module": "Pembelian - Permintaan Barang CV (Buat Penerimaan)",
+        "test_case": "Ambil data dari Faktur: pilih Supplier lalu pilih Faktur untuk memuat detail dan daftar barang per depot",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-receipt",
+            "Pilih Supplier pada field \"Terima dari\"",
+            "Pada dropdown Faktur, pilih 1 nomor faktur",
+            "Perhatikan section \"DETAIL FAKTUR\" dan tabel Barang"
+        ],
+        "expected_result": "Sistem menampilkan detail faktur (nomor, tanggal, supplier, total, CV) dan memuat daftar barang ke tabel beserta kolom Depot untuk setiap item",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_GR_003",
+        "module": "Pembelian - Permintaan Barang CV (Buat Penerimaan)",
+        "test_case": "Buat penerimaan berhasil (happy path): isi field wajib, pilih faktur, centang minimal 1 item, simpan",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-receipt",
+            "Pilih Supplier",
+            "Isi Tanggal",
+            "Isi No.Surat Jalan",
+            "Isi Tgl.Pengiriman",
+            "Isi Diterima Oleh",
+            "Pilih 1 nomor Faktur sampai daftar barang tampil",
+            "Centang minimal 1 barang pada tabel",
+            "Klik tombol \"Buat Penerimaan Barang\""
+        ],
+        "expected_result": "Sistem menyimpan penerimaan barang (GR) untuk permintaan barang CV, menampilkan notifikasi sukses, dan redirect ke halaman list penerimaan (/good-request-groups/goods-receipt)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_GR_004",
+        "module": "Pembelian - Permintaan Barang CV (Buat Penerimaan)",
+        "test_case": "Validasi: supplier, tanggal, nomor surat jalan, tgl pengiriman, diterima oleh, dan nomor faktur wajib diisi",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-receipt",
+            "Klik tombol \"Buat Penerimaan Barang\" tanpa mengisi apapun",
+            "Isi Supplier namun biarkan Tanggal kosong lalu klik submit",
+            "Isi Tanggal namun biarkan No.Surat Jalan kosong lalu klik submit",
+            "Isi No.Surat Jalan namun biarkan Tgl.Pengiriman kosong lalu klik submit",
+            "Isi Tgl.Pengiriman namun biarkan Diterima Oleh kosong lalu klik submit",
+            "Isi Diterima Oleh namun belum memilih nomor Faktur lalu klik submit"
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan sesuai kondisi: \"Pilih supplier terlebih dahulu\" / \"Tanggal belum diisi\" / \"Nomor surat jalan, belum diisi\" / \"Tanggal pengiriman, belum diisi\" / \"Diterima oleh, belum diisi\" / \"Nomor faktur, belum dipilih\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_GR_005",
+        "module": "Pembelian - Permintaan Barang CV (Buat Penerimaan)",
+        "test_case": "Validasi: daftar barang tidak boleh kosong dan minimal satu barang harus dicentang",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-receipt",
+            "Pilih Supplier dan pilih 1 nomor Faktur",
+            "Jika daftar barang tidak muncul, klik submit",
+            "Jika daftar barang muncul, pastikan semua item tidak dicentang lalu klik submit"
+        ],
+        "expected_result": "Sistem menolak submit dan menampilkan peringatan sesuai kondisi: \"Daftar barang kosong\" atau \"Minimal satu barang harus dicentang\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_GR_006",
+        "module": "Pembelian - Permintaan Barang CV (Buat Penerimaan)",
+        "test_case": "Worst case: barang tanpa akun persediaan memunculkan konfirmasi untuk menyimpan tanpa jurnal",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create-receipt",
+            "Pilih Supplier dan pilih 1 nomor Faktur sampai daftar barang tampil",
+            "Centang barang yang belum memiliki akun persediaan (inventory account)",
+            "Klik tombol \"Buat Penerimaan Barang\"",
+            "Pada pop-up konfirmasi, klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menampilkan pop-up konfirmasi (peringatan akun persediaan kosong). Jika user memilih \"Simpan\", sistem tetap menyimpan penerimaan barang dan redirect ke /good-request-groups/goods-receipt",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPR_001",
+        "module": "Pembelian - Permintaan Air (Buat)",
+        "test_case": "Navigasi: akses halaman \"Buat Permintaan Air\" dari menu \"Permintaan & Pesanan Air\"",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses \"Permintaan & Pesanan Air\"",
+            "Buka menu Pembelian > Permintaan & Pesanan Air (halaman /water-purchase)",
+            "Klik tab \"Permintaan Air\" (halaman /water-purchase-request)",
+            "Klik tombol \"Buat Permintaan Air\""
+        ],
+        "expected_result": "Sistem membuka halaman /water-purchase-request/create dan menampilkan form input Depot, Tanggal, Penanggung Jawab, Keterangan, Tanggal Kirim, Waktu Kirim, dan Catatan untuk supplier, beserta tombol \"Simpan Permintaan Air\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPR_002",
+        "module": "Pembelian - Permintaan Air (Buat)",
+        "test_case": "Simpan permintaan air berhasil (happy path): data tersimpan dan kembali ke list permintaan air",
+        "test_steps": [
+            "Buka halaman /water-purchase-request/create",
+            "Pilih Depot",
+            "Isi Tanggal",
+            "Isi Penanggung Jawab (opsional)",
+            "Isi Keterangan (opsional)",
+            "Isi Tanggal Kirim dan Waktu Kirim (opsional)",
+            "Isi Catatan untuk supplier (opsional)",
+            "Klik tombol \"Simpan Permintaan Air\""
+        ],
+        "expected_result": "Sistem menyimpan permintaan air dengan status \"pending\", menampilkan notifikasi sukses \"Permintaan air berhasil disimpan\", lalu redirect ke halaman /water-purchase-request. Pada list, data baru muncul dengan Nomor format DWR-<KODE_WILAYAH>-<ddmmyy>-<counter> sesuai depot",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPR_003",
+        "module": "Pembelian - Permintaan Air (Buat)",
+        "test_case": "Worst case: Depot tidak dipilih → simpan ditolak (error dari server) dan data tidak tersimpan",
+        "test_steps": [
+            "Buka halaman /water-purchase-request/create",
+            "Biarkan field Depot kosong",
+            "Isi field Tanggal",
+            "Klik tombol \"Simpan Permintaan Air\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan, menampilkan notifikasi error (toastr) dari server, tidak melakukan redirect ke list, dan data permintaan air tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPR_004",
+        "module": "Pembelian - Permintaan Air (Buat)",
+        "test_case": "Worst case: Tanggal tidak diisi → simpan ditolak (error dari server) dan data tidak tersimpan",
+        "test_steps": [
+            "Buka halaman /water-purchase-request/create",
+            "Pilih Depot",
+            "Biarkan field Tanggal kosong",
+            "Klik tombol \"Simpan Permintaan Air\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan, menampilkan notifikasi error (toastr) dari server, tidak melakukan redirect ke list, dan data permintaan air tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPV2_001",
+        "module": "Pembelian - Permintaan & Pesanan Air (Buat Pesanan v2)",
+        "test_case": "Navigasi: akses halaman \"Buat Pesanan\" (Pemesanan Air v2)",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu \"Permintaan & Pesanan Air\"",
+            "Buka menu Pembelian > Permintaan & Pesanan Air (halaman /water-purchase)",
+            "Pastikan berada di tab \"Pesanan Air\"",
+            "Klik tombol \"Buat Pesanan\""
+        ],
+        "expected_result": "Sistem membuka halaman /water-purchase/create dan menampilkan halaman \"Pemesanan Air 2\" berisi tabel depot, pilihan Nomor PO (CV), Supplier, Tgl Kirim, Waktu Kirim, Catatan untuk Supplier, serta tombol \"Simpan Pengiriman\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPV2_002",
+        "module": "Pembelian - Permintaan & Pesanan Air (Buat Pesanan v2)",
+        "test_case": "Auto-fill dari Nomor PO (CV): supplier/tanggal/waktu/catatan terisi otomatis dari permintaan air terkait",
+        "test_steps": [
+            "Buka halaman /water-purchase/create",
+            "Pada salah satu baris depot, pilih \"Nomor PO\" yang memiliki data permintaan air",
+            "Perhatikan field Supplier, Tgl Kirim, Waktu Kirim, dan Catatan untuk Supplier pada baris depot tersebut"
+        ],
+        "expected_result": "Saat Nomor PO dipilih, sistem mengisi otomatis Supplier, Tgl Kirim, Waktu Kirim, dan Catatan untuk Supplier sesuai data permintaan air (water purchase request) pada PO tersebut",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPV2_003",
+        "module": "Pembelian - Permintaan & Pesanan Air (Buat Pesanan v2)",
+        "test_case": "Buat pesanan air berhasil (happy path): minimal 1 depot memenuhi syarat kirim lalu simpan dan redirect ke list",
+        "test_steps": [
+            "Buka halaman /water-purchase/create",
+            "Isi field \"Penanggung Jawab\"",
+            "Pada minimal 1 baris depot, pilih Nomor PO (CV) dan pastikan Supplier, Tgl Kirim, serta Waktu Kirim terisi (manual atau auto-fill)",
+            "Klik tombol \"Simpan Pengiriman\"",
+            "Pada pop-up konfirmasi, klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan data pesanan air (header) dan membuat pesanan per-depot untuk baris yang memenuhi syarat kirim (status \"pending\"), menampilkan notifikasi sukses, lalu redirect ke halaman /water-purchase",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPV2_004",
+        "module": "Pembelian - Permintaan & Pesanan Air (Buat Pesanan v2)",
+        "test_case": "Validasi: Penanggung Jawab wajib diisi sebelum simpan",
+        "test_steps": [
+            "Buka halaman /water-purchase/create",
+            "Biarkan field \"Penanggung Jawab\" kosong",
+            "Klik tombol \"Simpan Pengiriman\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Penanggung jawab harus diisi\"; tidak ada request simpan ke server",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "WPV2_005",
+        "module": "Pembelian - Permintaan & Pesanan Air (Buat Pesanan v2)",
+        "test_case": "Worst case: depot tidak memenuhi syarat kirim (PO/Supplier/Tgl/Waktu belum lengkap) → depot tidak ikut terkirim",
+        "test_steps": [
+            "Buka halaman /water-purchase/create",
+            "Isi field \"Penanggung Jawab\"",
+            "Pada salah satu baris depot, isi tidak lengkap (misalnya hanya pilih Nomor PO tapi kosongkan Waktu Kirim, atau tidak pilih Supplier)",
+            "Klik tombol \"Simpan Pengiriman\"",
+            "Pada pop-up konfirmasi, perhatikan daftar depot yang akan dikirim, lalu klik \"Simpan\""
+        ],
+        "expected_result": "Depot yang belum lengkap (PO/Supplier/Tgl Kirim/Waktu Kirim) tidak masuk daftar konfirmasi dan tidak dibuatkan pesanan per-depot (isSend tetap 0). Hanya depot yang lengkap yang dibuatkan pesanan per-depot",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_001",
+        "module": "Reseller - Tambah Reseller",
+        "test_case": "Navigasi: akses halaman \"Tambah Reseller\" dari menu Reseller",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu Reseller",
+            "Buka menu Reseller (halaman /reseller)",
+            "Klik tombol \"Tambah Reseller\""
+        ],
+        "expected_result": "Sistem membuka halaman /reseller/create dan menampilkan form General (Depot, CV otomatis, Tanggal Bergabung, Nama, Nomor HP, Email, Alamat, Nomor MoU, File MoU, Tanggal Awal Penjualan, Tanggal Jatuh Tempo Penjualan) serta section Target Penjualan dan tombol \"Simpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_002",
+        "module": "Reseller - Tambah Reseller",
+        "test_case": "CV terisi otomatis saat Depot dipilih",
+        "test_steps": [
+            "Buka halaman /reseller/create",
+            "Pada field \"Depot\", pilih salah satu depot",
+            "Perhatikan field \"CV\""
+        ],
+        "expected_result": "Field \"CV\" terisi otomatis sesuai CV depot yang dipilih dan field tersebut tidak dapat diedit manual",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_003",
+        "module": "Reseller - Tambah Reseller",
+        "test_case": "Simpan reseller berhasil (tanpa mengisi target penjualan)",
+        "test_steps": [
+            "Buka halaman /reseller/create",
+            "Pilih Depot",
+            "Pastikan Tanggal Bergabung terisi (atau isi tanggal)",
+            "Isi Nama, Nomor HP, dan Alamat",
+            "Isi Nomor MoU (opsional) dan Email (opsional)",
+            "Upload File MoU",
+            "Biarkan bagian Target Penjualan kosong",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan data reseller, menampilkan notifikasi sukses, lalu mengarahkan ke halaman /reseller. Pada list reseller, data baru muncul dengan Kode format RS-YYYY-#### dan file MoU dapat dibuka dari kolom File MoU",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_004",
+        "module": "Reseller - Tambah Reseller",
+        "test_case": "Simpan ditolak ketika data wajib belum lengkap",
+        "test_steps": [
+            "Buka halaman /reseller/create",
+            "Kosongkan Tanggal Bergabung lalu klik \"Simpan\"",
+            "Isi Tanggal Bergabung, kosongkan Nama lalu klik \"Simpan\"",
+            "Isi Nama, kosongkan Nomor HP lalu klik \"Simpan\"",
+            "Isi Nomor HP, kosongkan Alamat lalu klik \"Simpan\"",
+            "Isi Alamat, jangan upload File MoU lalu klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error sesuai kondisi: \"Tanggal bergabung harus diisi\" / \"Nama harus diisi\" / \"Nomor telepon harus diisi\" / \"Alamat harus diisi\" / \"File MOU harus diupload\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_005",
+        "module": "Reseller - Tambah Reseller",
+        "test_case": "Pengisian target penjualan harus lengkap dan periode tidak tumpang tindih",
+        "test_steps": [
+            "Buka halaman /reseller/create",
+            "Isi data wajib (Depot, Tanggal Bergabung, Nama, Nomor HP, Alamat) dan upload File MoU",
+            "Pada Bulan ke-1, isi Target (mis. 10) dan Tanggal Awal saja (biarkan Tanggal Akhir kosong)",
+            "Klik \"Simpan\"",
+            "Lengkapi Bulan ke-1 (Tanggal Awal, Tanggal Akhir, Target) lalu isi Bulan ke-2 dengan rentang tanggal yang tumpang tindih dengan Bulan ke-1",
+            "Klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error sesuai kondisi, misalnya \"Tanggal akhir untuk Bulan ke-1 harus diisi\" dan saat periode tumpang tindih muncul pesan \"Periode Bulan ke-1 dan Bulan ke-2 tidak boleh tumpang tindih\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_006",
+        "module": "Reseller - Tambah Reseller",
+        "test_case": "Hitung otomatis tanggal target berdasarkan tanggal bergabung",
+        "test_steps": [
+            "Buka halaman /reseller/create",
+            "Centang opsi \"Ya, hitung dari tanggal bergabung\"",
+            "Perhatikan tanggal awal/akhir pada Bulan ke-1, Bulan ke-2, dan Bulan ke-3",
+            "Ubah Tanggal Bergabung dan perhatikan tanggal target ikut berubah",
+            "Hilangkan centang opsi tersebut"
+        ],
+        "expected_result": "Saat opsi dicentang, sistem mengisi otomatis rentang tanggal target (Bulan ke-1 s/d Bulan ke-3). Saat Tanggal Bergabung diubah, rentang tanggal ikut menyesuaikan. Saat opsi dimatikan, tanggal target kembali kosong",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_SALE_001",
+        "module": "Penjualan - Reseller (Tambah Penjualan Reseller)",
+        "test_case": "Navigasi: akses halaman \"Tambah Penjualan Reseller\" dari menu Penjualan > Reseller",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu Penjualan Reseller",
+            "Buka menu Penjualan > Reseller (halaman /reseller-sale)",
+            "Klik tombol \"Tambah Penjualan Reseller\""
+        ],
+        "expected_result": "Sistem membuka halaman /reseller-sale/create dan menampilkan form: pilihan Reseller, Tanggal Penjualan, pilihan Produk Penjualan, pilihan Produk Reseller, ringkasan Total, Tanggal Jurnal, upload Bukti Pembayaran, dan tombol \"Simpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_SALE_002",
+        "module": "Penjualan - Reseller (Tambah Penjualan Reseller)",
+        "test_case": "Memuat detail reseller setelah reseller dipilih",
+        "test_steps": [
+            "Buka halaman /reseller-sale/create",
+            "Pilih salah satu reseller pada dropdown Reseller",
+            "Tunggu hingga proses pencarian selesai"
+        ],
+        "expected_result": "Sistem menampilkan indikator \"Mencari data reseller..\" lalu menampilkan kartu \"Detail Reseller\" (Nama, Kode, Tanggal Bergabung, Depot, CV, Email, No. HP, Alamat)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_SALE_003",
+        "module": "Penjualan - Reseller (Tambah Penjualan Reseller)",
+        "test_case": "Harga dan qty terisi otomatis dari Produk Reseller dan total terhitung",
+        "test_steps": [
+            "Buka halaman /reseller-sale/create",
+            "Pilih reseller (hingga detail reseller tampil)",
+            "Pilih 1 \"Produk Reseller\"",
+            "Perhatikan field \"Harga Satuan\", \"Qty\", dan \"Total\""
+        ],
+        "expected_result": "Field \"Harga Satuan\" dan \"Qty\" terisi otomatis sesuai Produk Reseller yang dipilih (field tidak dapat diedit manual), dan nilai \"Total\" berubah sesuai Harga Satuan x Qty",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_SALE_004",
+        "module": "Penjualan - Reseller (Tambah Penjualan Reseller)",
+        "test_case": "Simpan penjualan reseller berhasil",
+        "test_steps": [
+            "Buka halaman /reseller-sale/create",
+            "Pilih reseller (hingga detail reseller tampil)",
+            "Isi Tanggal Penjualan (atau biarkan default)",
+            "Pilih \"Produk Penjualan\"",
+            "Pilih \"Produk Reseller\" (hingga harga dan qty terisi)",
+            "Isi \"Tanggal Jurnal\"",
+            "Upload \"Bukti Pembayaran\"",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan penjualan reseller, menampilkan notifikasi sukses, lalu mengarahkan ke halaman /reseller-sale. Pada list, data baru muncul dengan nomor format RSS.<ddmmyy>.<###>, status \"Belum Selesai\", dan bukti pembayaran dapat dibuka",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_SALE_005",
+        "module": "Penjualan - Reseller (Tambah Penjualan Reseller)",
+        "test_case": "Simpan ditolak ketika data belum lengkap",
+        "test_steps": [
+            "Buka halaman /reseller-sale/create",
+            "Klik tombol \"Simpan\" tanpa memilih reseller",
+            "Pilih reseller, lalu klik \"Simpan\" tanpa memilih Produk Penjualan",
+            "Pilih Produk Penjualan, lalu klik \"Simpan\" tanpa memilih Produk Reseller",
+            "Pilih Produk Reseller, lalu klik \"Simpan\" tanpa mengisi Tanggal Jurnal",
+            "Isi Tanggal Jurnal, lalu klik \"Simpan\" tanpa mengupload Bukti Pembayaran"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error sesuai kondisi: \"Reseller harus dipilih\" / \"Produk penjualan harus dipilih\" / \"Produk reseller harus dipilih\" / \"Tanggal transaksi harus diisi\" / \"File bukti pembayaran harus diupload\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_LIQ_001",
+        "module": "Penjualan - Dana Hangus Reseller (Tambah Pengajuan)",
+        "test_case": "Navigasi: akses halaman \"Tambah\" pengajuan dana hangus reseller",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses pengajuan dana hangus reseller",
+            "Buka halaman /reseller-liquidation-application",
+            "Buka halaman tambah pengajuan (/reseller-liquidation-application/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /reseller-liquidation-application/create dan menampilkan input Reseller, Sisa Quantity, Total Amount, tombol \"Save\", dan tombol \"Cancel\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_LIQ_002",
+        "module": "Penjualan - Dana Hangus Reseller (Tambah Pengajuan)",
+        "test_case": "Simpan pengajuan berhasil dan status menjadi pending",
+        "test_steps": [
+            "Buka halaman /reseller-liquidation-application/create",
+            "Pilih Reseller",
+            "Isi Sisa Quantity (angka > 0)",
+            "Isi Total Amount (angka > 0)",
+            "Klik tombol \"Save\"",
+            "Pada pop-up sukses, klik \"OK\""
+        ],
+        "expected_result": "Sistem menyimpan pengajuan, menampilkan pop-up sukses dengan pesan \"Data has been saved\", lalu mengarahkan ke halaman /reseller-liquidation-application. Data baru tampil dengan status \"Pending\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_LIQ_003",
+        "module": "Penjualan - Dana Hangus Reseller (Tambah Pengajuan)",
+        "test_case": "Simpan ditolak ketika field belum lengkap",
+        "test_steps": [
+            "Buka halaman /reseller-liquidation-application/create",
+            "Klik tombol \"Save\" tanpa mengisi apapun",
+            "Isi Reseller saja, klik \"Save\"",
+            "Isi Sisa Quantity saja, klik \"Save\"",
+            "Isi Total Amount saja, klik \"Save\""
+        ],
+        "expected_result": "Sistem menampilkan pop-up error \"Mohon lengkapi semua field yang diperlukan\" dan data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSL_LIQ_004",
+        "module": "Penjualan - Dana Hangus Reseller (Tambah Pengajuan)",
+        "test_case": "Pengajuan baru ditolak jika masih ada pengajuan pending untuk reseller yang sama",
+        "test_steps": [
+            "Pastikan sudah ada 1 pengajuan dana hangus dengan status \"Pending\" untuk reseller tertentu",
+            "Buka halaman /reseller-liquidation-application/create",
+            "Pilih reseller yang sama",
+            "Isi Sisa Quantity dan Total Amount",
+            "Klik tombol \"Save\""
+        ],
+        "expected_result": "Sistem menampilkan pop-up error dari server dengan pesan \"Gagal mengajukan. Masih ada pengajuan penghapusan dana yang masih pending.\" dan data baru tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_001",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Navigasi: akses halaman \"Tambah Faktur\" CV",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses HO > Faktur (CV)",
+            "Buka menu HO > Faktur (halaman /cv/cv-purchase-invoice)",
+            "Klik tombol \"Tambah Faktur\""
+        ],
+        "expected_result": "Sistem membuka halaman /cv/cv-purchase-invoice/create dan menampilkan form CV, Tanggal Invoice, Nomor Form (auto), Due Date, Depot, pilihan Pesanan, tabel Barang/Biaya, serta tombol \"Simpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_002",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Memuat data pesanan: pilih Depot dan Pesanan untuk menampilkan detail pesanan dan daftar barang",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-invoice/create",
+            "Pilih CV",
+            "Pilih Depot pada field Depot",
+            "Pada dropdown Pesanan, pilih 1 nomor pesanan",
+            "Tunggu hingga loading selesai"
+        ],
+        "expected_result": "Sistem menampilkan section \"DETAIL PESANAN\" dan mengisi tabel Barang sesuai item pesanan. Field terkait pesanan (mis. Due Date, Tgl Pengiriman, Keterangan, Disetujui Oleh) ikut terisi sesuai data pesanan bila tersedia",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_003",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Simpan faktur berhasil",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-invoice/create",
+            "Pilih CV, pilih Depot, lalu pilih Pesanan sampai daftar barang muncul",
+            "Isi Due Date jika belum terisi",
+            "Pada minimal 1 baris barang, pastikan QTY > 0 dan Total faktur > 0",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan faktur, menampilkan notifikasi sukses (toastr). Saat kembali ke list (/cv/cv-purchase-invoice), data faktur baru muncul dengan nomor berawalan \"INV\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_004",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Simpan ditolak ketika total faktur 0",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-invoice/create",
+            "Pilih CV, pilih Depot, lalu pilih Pesanan sampai daftar barang muncul",
+            "Set QTY pada semua baris barang menjadi 0 (atau pastikan Total faktur menjadi 0)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Nilai faktur tidak boleh sama dengan atau kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_005",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Simpan ditolak ketika QTY melebihi sisa yang dapat diproses",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-invoice/create",
+            "Pilih CV, pilih Depot, lalu pilih Pesanan sampai daftar barang muncul",
+            "Pada salah satu barang, perhatikan QTY Pesanan dan QTY Difaktur",
+            "Isi QTY lebih besar dari (QTY Pesanan - QTY Difaktur)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"QTY melebihi jumlah yang dapat diproses\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_006",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Biaya tambahan tersimpan hanya jika akun biaya dipilih",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-invoice/create",
+            "Pilih CV, pilih Depot, lalu pilih Pesanan sampai daftar barang muncul",
+            "Buka tab \"Biaya\"",
+            "Klik \"Tambah Biaya\" lalu isi nominal, tetapi biarkan Akun kosong",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error \"Pilih akun biaya\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPI_007",
+        "module": "HO - CV Faktur Penjualan (Buat)",
+        "test_case": "Pengaturan RAB harus lengkap sebelum disimpan",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-invoice/create",
+            "Pilih CV, pilih Depot, lalu pilih Pesanan sampai daftar barang muncul",
+            "Pada salah satu item, aktifkan switch RAB",
+            "Di modal RAB, klik \"Simpan\" tanpa memilih RAB",
+            "Ulangi: pilih RAB tetapi jangan pilih kategori estimasi (bila list kategori muncul), lalu klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menampilkan peringatan sesuai kondisi: \"Pilih RAB terlebih dahulu\" atau \"Pilih kategori estimasi (item pengurang) untuk RAB\" dan status RAB pada item tidak tersimpan sebelum konfigurasi lengkap",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVDO_001",
+        "module": "HO - CV Pengiriman (Buat Pengiriman Barang)",
+        "test_case": "Navigasi: akses halaman \"Buat Pengiriman Barang\"",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses HO > Pengiriman",
+            "Buka menu HO > Pengiriman (halaman /cv-delivery-order)",
+            "Klik tombol \"Buat Pengiriman Barang\""
+        ],
+        "expected_result": "Sistem membuka halaman /cv-delivery-order/create dan menampilkan form CV, Depot, Tanggal, Nomor Form (auto), Keterangan, dropdown Faktur, tabel Barang (Tgl Kirim, Kirim Dari, Nama Pengirim), serta tombol \"Buat Pengiriman Barang\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVDO_002",
+        "module": "HO - CV Pengiriman (Buat Pengiriman Barang)",
+        "test_case": "Filter faktur mengikuti CV dan Depot yang dipilih",
+        "test_steps": [
+            "Buka halaman /cv-delivery-order/create",
+            "Pilih CV",
+            "Pilih Depot",
+            "Pastikan halaman melakukan reload otomatis",
+            "Buka dropdown \"Nomor Faktur\" dan perhatikan opsi yang tersedia"
+        ],
+        "expected_result": "Setelah CV dan Depot dipilih (query param cv_id dan outlet_id terpasang), sistem memuat ulang halaman dan daftar Faktur yang tersedia sesuai CV dan Depot tersebut",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVDO_003",
+        "module": "HO - CV Pengiriman (Buat Pengiriman Barang)",
+        "test_case": "Memuat detail faktur dan daftar barang setelah nomor faktur dipilih",
+        "test_steps": [
+            "Buka halaman /cv-delivery-order/create?cv_id=<id>&outlet_id=<id> (atau pilih CV dan Depot sampai halaman reload)",
+            "Pilih 1 nomor Faktur",
+            "Tunggu hingga loading selesai",
+            "Perhatikan section \"DETAIL FAKTUR\" dan tabel Barang"
+        ],
+        "expected_result": "Sistem menampilkan detail faktur (Nomor/Tanggal/Depot/Keterangan/Total) dan mengisi tabel barang dengan QTY yang masih bisa dikirim, Tgl Kirim default hari ini, serta Kirim Dari terisi otomatis",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVDO_004",
+        "module": "HO - CV Pengiriman (Buat Pengiriman Barang)",
+        "test_case": "Simpan pengiriman berhasil",
+        "test_steps": [
+            "Buka halaman /cv-delivery-order/create?cv_id=<id>&outlet_id=<id>",
+            "Pilih 1 nomor Faktur sampai daftar barang tampil",
+            "Isi/ubah Tgl Kirim pada salah satu barang (bila diperlukan)",
+            "Isi Nama Pengirim dan/atau Keterangan pada barang (opsional)",
+            "Klik tombol \"Buat Pengiriman Barang\""
+        ],
+        "expected_result": "Sistem menyimpan pengiriman, menampilkan notifikasi sukses \"Pengiriman berhasil disimpan\", dan redirect ke halaman /cv-delivery-order. Pada list, data baru muncul dengan nomor berawalan GRCV",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVDO_005",
+        "module": "HO - CV Pengiriman (Buat Pengiriman Barang)",
+        "test_case": "Simpan tidak dapat dilakukan ketika tidak ada kuantitas yang dikirim",
+        "test_steps": [
+            "Buka halaman /cv-delivery-order/create?cv_id=<id>&outlet_id=<id>",
+            "Pilih nomor Faktur yang tidak memiliki QTY tersisa (jika ada) sehingga total QTY terkirim = 0",
+            "Klik tombol \"Buat Pengiriman Barang\""
+        ],
+        "expected_result": "Sistem menampilkan peringatan \"Total kuantitas yang diterima tidak boleh sama dengan atau kurang dari nol\" dan data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVDO_006",
+        "module": "HO - CV Pengiriman (Buat Pengiriman Barang)",
+        "test_case": "Simpan ditolak ketika informasi pengiriman per barang belum lengkap",
+        "test_steps": [
+            "Buka halaman /cv-delivery-order/create?cv_id=<id>&outlet_id=<id>",
+            "Pilih 1 nomor Faktur sampai daftar barang tampil",
+            "Kosongkan field \"Tgl.Kirim\" pada salah satu barang",
+            "Klik tombol \"Buat Pengiriman Barang\""
+        ],
+        "expected_result": "Sistem menampilkan peringatan \"Lengkapi isian form\" dan data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_001",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "Navigasi: akses halaman \"PO Bundling\"",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses CV > Pesanan",
+            "Buka menu CV > Pesanan (halaman /cv/cv-purchase-orders)",
+            "Klik tombol \"PO Bundling\""
+        ],
+        "expected_result": "Sistem membuka halaman /cv/cv-purchase-orders/createV2 dan menampilkan form pesanan (Nomor Pesanan, Pilih HO, Pilih Outlet HO, Penanggung Jawab, Tanggal, Outlet, CV, Syarat Bayar, Tgl Jatuh Tempo, Tgl Pengiriman, Keterangan) serta tab List Barang dan Biaya Lainnya dan tombol \"Buat Pesanan Pembelian\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_002",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "CV dan nomor pesanan terisi otomatis setelah memilih Outlet dan Tanggal",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-orders/createV2",
+            "Pilih Outlet",
+            "Isi/ubah Tanggal",
+            "Perhatikan field CV dan Nomor Pesanan"
+        ],
+        "expected_result": "Field CV terisi otomatis sesuai outlet yang dipilih dan Nomor Pesanan ter-generate otomatis dengan format PO.<KODE_OUTLET>.<KODE_CV>.<ddmmyy>.<counter>",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_003",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "Buat pesanan berhasil (minimal 1 barang diisi)",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-orders/createV2",
+            "Pilih HO dan pilih Outlet HO",
+            "Isi Penanggung Jawab",
+            "Isi Tanggal dan pilih Outlet",
+            "Pilih Syarat Bayar, isi Tgl Jatuh Tempo, isi Tgl Pengiriman, dan isi Keterangan",
+            "Pada tab \"List Barang\", pada 1 baris barang isi: Kirim Dari, pilih Barang, isi QTY (>0), pastikan Harga Satuan terisi (atau isi manual), dan pastikan Total pesanan > 0",
+            "Klik tombol \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menyimpan pesanan, menampilkan notifikasi sukses \"Data telah tersimpan\", lalu mengarahkan ke halaman daftar pesanan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_004",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "Buat pesanan ditolak ketika data wajib belum lengkap",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-orders/createV2",
+            "Klik \"Buat Pesanan Pembelian\" tanpa memilih HO",
+            "Pilih HO, klik submit tanpa memilih Outlet HO",
+            "Pilih Outlet HO, klik submit tanpa mengisi Penanggung Jawab",
+            "Isi Penanggung Jawab, klik submit tanpa mengisi Tanggal",
+            "Isi Tanggal, klik submit tanpa memilih Outlet",
+            "Pilih Outlet, klik submit tanpa memilih Syarat Bayar / tanpa mengisi Tgl Jatuh Tempo / tanpa mengisi Tgl Pengiriman / tanpa mengisi Keterangan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi, seperti: \"CV HO, belum dipilih\" / \"Outlet HO, belum dipilih\" / \"Disetujui oleh, belum diisi\" / \"Tanggal belum diisi\" / \"Depot belum dipilih\" / \"Syarat pembayaran, belum dipilih\" / \"Tanggal jatuh tempo, belum diisi\" / \"Tanggal pengiriman, belum diisi\" / \"Keterangan, belum diisi\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_005",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "Buat pesanan ditolak ketika diskon atau biaya tidak sesuai",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-orders/createV2",
+            "Isi data wajib dan isi minimal 1 barang agar Total > 0",
+            "Set diskon barang menjadi > 100, lalu klik \"Buat Pesanan Pembelian\"",
+            "Kembalikan diskon normal, lalu pada tab \"Biaya Lainnya\" tambahkan 1 biaya dengan jumlah negatif (mis. -1000), lalu klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi: \"Diskon melebihi batas\" atau \"Jumlah biaya tidak boleh kurang dari nol\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_006",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "Buat pesanan ditolak ketika barang aktiva belum dipilih akun aktivanya",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-orders/createV2",
+            "Isi data wajib",
+            "Pada tab \"List Barang\", pilih barang yang bertipe aktiva (atau barang yang membuat switch Aktiva aktif)",
+            "Pastikan item Aktiva aktif namun Akun Aktiva kosong",
+            "Klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Akun aktiva belum dipilih untuk barang ke-1\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPOV2_007",
+        "module": "CV - Pesanan Pembelian (Buat v2 / PO Bundling)",
+        "test_case": "Kombinasi item tertentu ditolak (bundling biaya dan jasa)",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-orders/createV2",
+            "Isi data wajib",
+            "Tambah 2 baris barang: 1 baris pilih barang bundling biaya (bundling yang bersifat biaya), 1 baris pilih barang non-jasa",
+            "Klik \"Buat Pesanan Pembelian\"",
+            "Ubah skenario: pilih 1 barang jasa dan 1 barang non-bundling-biaya, lalu klik \"Buat Pesanan Pembelian\""
+        ],
+        "expected_result": "Sistem menampilkan pop-up peringatan dan menolak simpan sesuai aturan: bundling biaya tidak boleh digabung dengan barang selain jasa, dan barang jasa tidak boleh digabung dengan barang selain bundling biaya",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPPV2_001",
+        "module": "CV - Pembayaran Pembelian (Buat v2)",
+        "test_case": "Navigasi: akses halaman \"Tambah Data Bayar\"",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses CV > Pembayaran",
+            "Buka menu CV > Pembayaran (halaman /cv/cv-purchase-payments/indexV2)",
+            "Klik tombol \"Tambah Data Bayar\""
+        ],
+        "expected_result": "Sistem membuka halaman /cv/cv-purchase-payments/createV2 dan menampilkan field CV, Akun Bayar, HO Penerima, Akun Penerima, ringkasan Nilai Bayar, tabel Tagihan (Depot, Nomor, Tanggal, Jatuh Tempo, Total, Terutang, Jumlah Bayar), serta tombol \"Simpan Data Pembayaran\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPPV2_002",
+        "module": "CV - Pembayaran Pembelian (Buat v2)",
+        "test_case": "Daftar tagihan terutang tampil setelah memilih CV dan HO Penerima",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-payments/createV2",
+            "Pilih CV",
+            "Pilih HO Penerima",
+            "Tunggu sampai loading pada tabel Tagihan selesai"
+        ],
+        "expected_result": "Sistem menampilkan daftar tagihan (invoice) yang masih memiliki Terutang > 0 sesuai filter CV dan HO Penerima. Kolom Jumlah Bayar per invoice terisi default sebesar Terutang, namun Nilai Bayar total tetap 0 sampai invoice dicentang",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPPV2_003",
+        "module": "CV - Pembayaran Pembelian (Buat v2)",
+        "test_case": "Simpan pembayaran berhasil",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-payments/createV2",
+            "Pilih CV dan pilih HO Penerima sampai tabel Tagihan tampil",
+            "Centang 1 invoice pada tabel Tagihan",
+            "Jika perlu, ubah Jumlah Bayar pada invoice (pastikan <= Terutang)",
+            "Pilih Akun Bayar",
+            "Pilih Akun Penerima",
+            "Klik tombol \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menyimpan pembayaran, menampilkan notifikasi sukses \"Data telah tersimpan\", lalu redirect ke halaman /cv/cv-purchase-payments/indexV2. Pada daftar, data group pembayaran baru muncul dengan nomor berawalan PCV.<yymmdd>.<###> dan nilai pembayaran sesuai total invoice yang dicentang",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPPV2_004",
+        "module": "CV - Pembayaran Pembelian (Buat v2)",
+        "test_case": "Simpan ditolak ketika invoice/nominal/akun belum sesuai",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-payments/createV2",
+            "Pilih CV dan HO Penerima sampai tabel Tagihan tampil",
+            "Klik \"Simpan Data Pembayaran\" tanpa mencentang invoice",
+            "Centang 1 invoice lalu ubah Jumlah Bayar menjadi 0, lalu klik \"Simpan Data Pembayaran\"",
+            "Isi kembali Jumlah Bayar > 0, biarkan Akun Bayar kosong, lalu klik \"Simpan Data Pembayaran\"",
+            "Pilih Akun Bayar, biarkan HO Penerima kosong, lalu klik \"Simpan Data Pembayaran\"",
+            "Pilih HO Penerima, biarkan Akun Penerima kosong, lalu klik \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan sesuai kondisi: \"Invoice belum dipilih\" / \"Nilai bayar tidak boleh sama dengan atau kurang dari nol\" / pop-up error \"Akun Bayar, harus dipilih.\" / \"HO Penerima, harus dipilih.\" / \"Akun Penerima, harus dipilih.\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CVPPV2_005",
+        "module": "CV - Pembayaran Pembelian (Buat v2)",
+        "test_case": "Simpan ditolak ketika jumlah bayar melebihi terutang per invoice",
+        "test_steps": [
+            "Buka halaman /cv/cv-purchase-payments/createV2",
+            "Pilih CV dan HO Penerima sampai tabel Tagihan tampil",
+            "Centang 1 invoice",
+            "Isi Jumlah Bayar lebih besar dari Terutang pada invoice tersebut",
+            "Pilih Akun Bayar dan Akun Penerima",
+            "Klik \"Simpan Data Pembayaran\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Jumlah bayar tidak boleh melebihi jumlah terutang\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_001",
+        "module": "RAB - Daftar RAB (Tambah RAB)",
+        "test_case": "Navigasi: akses halaman \"Tambah RAB\"",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu RAB",
+            "Buka menu RAB > Daftar RAB (halaman /rab)",
+            "Klik tombol \"Tambah RAB\""
+        ],
+        "expected_result": "Sistem membuka halaman /rab/create dan menampilkan form: Nomor RAB (auto), Tanggal Mulai, Nama RAB, Pemilik RAB, Lokasi, Alamat, Keterangan Tambahan, upload Foto RAB, daftar Dokumen (tambah/hapus), serta tombol \"Simpan & Lanjutkan\" dan \"Batal\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_002",
+        "module": "RAB - Daftar RAB (Tambah RAB)",
+        "test_case": "Nomor RAB mengikuti tanggal mulai dan counter bertambah bila sudah ada RAB pada tanggal yang sama",
+        "test_steps": [
+            "Buka halaman /rab/create",
+            "Ubah Tanggal Mulai dan perhatikan perubahan Nomor RAB pada form",
+            "Simpan 1 RAB dengan Tanggal Mulai yang sama (isi field wajib)",
+            "Kembali ke /rab/create dan simpan RAB kedua dengan Tanggal Mulai yang sama"
+        ],
+        "expected_result": "Nomor RAB pada form menyesuaikan tanggal (format RAB-<ddmmyyyy>-001). Setelah disimpan, sistem menyimpan nomor RAB dengan format RAB-<ddmmyyyy>-<###> dan untuk penyimpanan kedua pada tanggal yang sama, nomor berurut (mis. ...-002) sehingga tidak duplikat",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_003",
+        "module": "RAB - Daftar RAB (Tambah RAB)",
+        "test_case": "Simpan ditolak ketika field wajib belum lengkap",
+        "test_steps": [
+            "Buka halaman /rab/create",
+            "Kosongkan salah satu field wajib (Tanggal Mulai / Nama RAB / Pemilik RAB / Lokasi)",
+            "Klik tombol \"Simpan & Lanjutkan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pop-up peringatan (judul \"Perhatian\") dengan pesan \"Mohon lengkapi semua field yang wajib diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_004",
+        "module": "RAB - Daftar RAB (Tambah RAB)",
+        "test_case": "Simpan RAB berhasil (dengan foto/dokumen opsional)",
+        "test_steps": [
+            "Buka halaman /rab/create",
+            "Isi field wajib: Tanggal Mulai, Nama RAB, Pemilik RAB, Lokasi",
+            "Opsional: upload Foto RAB dan tambahkan 1 dokumen (Nama Dokumen + file)",
+            "Klik tombol \"Simpan & Lanjutkan\" lalu klik \"Simpan\" pada pop-up konfirmasi"
+        ],
+        "expected_result": "Sistem menyimpan RAB, menampilkan pop-up sukses \"RAB berhasil ditambahkan\", lalu redirect ke halaman /rab. Pada daftar, RAB baru muncul dengan status \"open\" dan item estimasi default sudah terbentuk untuk RAB tersebut",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_005",
+        "module": "RAB - Daftar RAB (Tambah RAB)",
+        "test_case": "Simpan ditolak ketika file upload tidak sesuai ketentuan",
+        "test_steps": [
+            "Buka halaman /rab/create",
+            "Isi field wajib",
+            "Upload Foto RAB dengan format yang tidak didukung atau ukuran > 2MB",
+            "Atau: tambahkan dokumen dan upload file dengan format yang tidak didukung atau ukuran > 5MB",
+            "Klik tombol \"Simpan & Lanjutkan\" lalu konfirmasi simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pop-up error berisi daftar pesan kesalahan upload (foto/dokumen). Data RAB tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_EST_001",
+        "module": "RAB - Estimasi Anggaran",
+        "test_case": "Navigasi: akses halaman Estimasi RAB dan tampil empty state sebelum memilih RAB",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu RAB",
+            "Buka menu RAB > Estimasi RAB (halaman /rab/estimation)"
+        ],
+        "expected_result": "Sistem menampilkan halaman Estimasi Anggaran dengan dropdown \"Pilih RAB\" dan info \"Pilih RAB Terlebih Dahulu\"; tabel item belum tampil sampai RAB dipilih",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_EST_002",
+        "module": "RAB - Estimasi Anggaran",
+        "test_case": "Pilih RAB memuat item penambah/pengurang dan ringkasan total",
+        "test_steps": [
+            "Buka halaman /rab/estimation",
+            "Pilih salah satu RAB pada dropdown \"Pilih RAB\"",
+            "Pastikan halaman berubah menjadi /rab/estimation?rab_id=<id>"
+        ],
+        "expected_result": "Sistem menampilkan tabel \"Item Penambah\" dan \"Item Pengurang\" untuk RAB terpilih, termasuk TOTAL Dana, TOTAL Estimasi Anggaran, dan EXCLUDE COST (total dari item pengurang yang exclude_cost aktif). Tombol \"Tambah Item\" dan \"Atur Urutan Uraian\" tersedia",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_EST_003",
+        "module": "RAB - Estimasi Anggaran",
+        "test_case": "Tambah item estimasi berhasil (penambah & pengurang)",
+        "test_steps": [
+            "Buka halaman /rab/estimation?rab_id=<id>",
+            "Pada section \"Item Penambah\" klik \"Tambah Item\"",
+            "Pada modal \"Tambah Item\", isi Nama Item dan Dana, lalu klik \"Simpan\"",
+            "Pada section \"Item Pengurang\" klik \"Tambah Item\"",
+            "Pada modal \"Tambah Item\", isi Nama Item dan Estimasi Anggaran, centang \"Exclude Cost\" (opsional), lalu klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan item dan menampilkan notifikasi sukses \"Item berhasil disimpan\". Item baru muncul pada tabel sesuai jenisnya, dan nilai total pada footer (TOTAL Dana / TOTAL Estimasi Anggaran / EXCLUDE COST bila dicentang) ikut ter-update",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_EST_004",
+        "module": "RAB - Estimasi Anggaran",
+        "test_case": "Ubah item dan sistem menolak nilai tidak valid",
+        "test_steps": [
+            "Buka halaman /rab/estimation?rab_id=<id>",
+            "Klik tombol edit (ikon pensil) pada salah satu item",
+            "Ubah Nama Item dan nilai Dana/Estimasi Anggaran, lalu klik \"Simpan\"",
+            "Coba isi nilai Dana/Estimasi Anggaran menjadi negatif (mis. -1) dan simpan"
+        ],
+        "expected_result": "Untuk perubahan yang valid, sistem menyimpan item dan menampilkan notifikasi sukses. Untuk nilai negatif, sistem menolak simpan dan menampilkan pop-up error dengan pesan \"Validasi gagal\" (atau daftar pesan error), serta data tidak berubah",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_EST_005",
+        "module": "RAB - Estimasi Anggaran",
+        "test_case": "Atur urutan uraian dan hapus item",
+        "test_steps": [
+            "Buka halaman /rab/estimation?rab_id=<id>",
+            "Klik tombol \"Atur Urutan Uraian\"",
+            "Drag & drop salah satu item (penambah atau pengurang) untuk mengubah urutan, lalu klik \"Simpan\" pada modal urutan",
+            "Klik tombol hapus (ikon tempat sampah) pada salah satu item, lalu konfirmasi \"Ya, Hapus\""
+        ],
+        "expected_result": "Sistem menyimpan urutan dan menampilkan notifikasi sukses \"Urutan item berhasil diperbarui\". Saat hapus, sistem menghapus item dan menampilkan notifikasi sukses \"Item berhasil dihapus\"; item hilang dari tabel dan total ikut ter-update",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_REAL_001",
+        "module": "RAB - Realisasi Anggaran",
+        "test_case": "Navigasi: akses halaman Realisasi RAB dan tampil empty state sebelum memilih RAB",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu RAB",
+            "Buka menu RAB > Realisasi RAB (halaman /rab/realization)"
+        ],
+        "expected_result": "Sistem menampilkan halaman Realisasi Anggaran dengan dropdown \"Pilih RAB\" dan informasi \"Pilih RAB Terlebih Dahulu\"; ringkasan dan tabel realisasi belum tampil sampai RAB dipilih",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_REAL_002",
+        "module": "RAB - Realisasi Anggaran",
+        "test_case": "Pilih RAB menampilkan ringkasan realisasi dan daftar kategori",
+        "test_steps": [
+            "Buka halaman /rab/realization",
+            "Pilih salah satu RAB pada dropdown \"Pilih RAB\"",
+            "Pastikan halaman berubah menjadi /rab/realization?rab_id=<id>"
+        ],
+        "expected_result": "Sistem menampilkan summary card (Dana Masuk, Estimasi Anggaran, Realisasi Anggaran, Exclude Cost Real, Profit & Loss) serta tabel kategori Item Penambah dan Item Pengurang. Nilai total pada summary dan footer tabel terisi sesuai data realisasi RAB terpilih",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_REAL_003",
+        "module": "RAB - Realisasi Anggaran",
+        "test_case": "Lihat detail transaksi per kategori (expand/collapse)",
+        "test_steps": [
+            "Buka halaman /rab/realization?rab_id=<id>",
+            "Pada salah satu kategori yang memiliki transaksi, klik tombol expand (+) pada kolom No.",
+            "Perhatikan baris detail yang muncul di bawah kategori, lalu klik lagi untuk collapse"
+        ],
+        "expected_result": "Sistem menampilkan daftar transaksi detail di bawah kategori. Untuk Item Penambah, detail menampilkan deskripsi, nomor jurnal (jika ada link maka dapat dibuka), tanggal, dan nominal. Untuk Item Pengurang, detail menampilkan nomor faktur (dapat dibuka jika ada link), status bayar/penerimaan, qty/satuan/harga satuan (jika tersedia), dan nominal realisasi",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_REAL_004",
+        "module": "RAB - Realisasi Anggaran",
+        "test_case": "Ubah urutan kategori dengan drag & drop dan urutan tersimpan",
+        "test_steps": [
+            "Buka halaman /rab/realization?rab_id=<id>",
+            "Drag & drop salah satu baris kategori (gunakan ikon grip) pada tabel Item Penambah untuk mengubah urutan",
+            "Drag & drop salah satu baris kategori pada tabel Item Pengurang untuk mengubah urutan",
+            "Refresh halaman"
+        ],
+        "expected_result": "Urutan kategori pada tabel berubah sesuai drag & drop. Setelah refresh, urutan tetap tersimpan sesuai perubahan (bukan kembali ke urutan lama)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_REAL_005",
+        "module": "RAB - Realisasi Anggaran",
+        "test_case": "Ubah data kategori (nama/estimasi/exclude cost) berhasil",
+        "test_steps": [
+            "Buka halaman /rab/realization?rab_id=<id>",
+            "Klik tombol edit (ikon pensil) pada salah satu kategori",
+            "Ubah Nama Item dan nilai Dana/Estimasi Anggaran",
+            "Jika kategori pengurang, ubah toggle \"Exclude Cost\" (opsional)",
+            "Klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan perubahan dan menampilkan notifikasi sukses \"Item berhasil diperbarui\". Nilai pada tabel kategori ikut ter-update (termasuk badge Exclude Cost bila diaktifkan)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RAB_REAL_006",
+        "module": "RAB - Realisasi Anggaran",
+        "test_case": "Simpan perubahan kategori ditolak ketika nilai tidak valid",
+        "test_steps": [
+            "Buka halaman /rab/realization?rab_id=<id>",
+            "Klik tombol edit (ikon pensil) pada salah satu kategori",
+            "Isi nilai Dana/Estimasi Anggaran menjadi negatif (mis. -1)",
+            "Klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak simpan dan menampilkan pop-up error (mis. \"Validasi gagal\" atau pesan detail error). Data kategori tidak berubah",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CGV3_001",
+        "module": "Persediaan - Barang - Produk & Jasa (Tambah v3)",
+        "test_case": "Navigasi: akses halaman tambah Barang/Produk/Jasa",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Persediaan > Barang - Produk & Jasa",
+            "Buka menu Persediaan > Barang - Produk & Jasa (halaman /central-goods)",
+            "Klik tombol \"Tambah Barang\" (atau \"Tambah Produk\"/\"Tambah Jasa\"/\"Tambah Bundling\" sesuai kebutuhan)"
+        ],
+        "expected_result": "Sistem membuka halaman /central-goods/create (atau /central-goods/create?type=<type>) dan menampilkan form tambah Barang - Produk & Jasa, termasuk pilihan Jenis Barang, Nama, harga (Harga Beli/Harga Jual), akun-akun, upload foto, serta tombol simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CGV3_002",
+        "module": "Persediaan - Barang - Produk & Jasa (Tambah v3)",
+        "test_case": "Simpan bundling barang berhasil",
+        "test_steps": [
+            "Buka halaman /central-goods/create?type=bundling",
+            "Isi Nama bundling",
+            "Pada bagian bundling, pastikan mode \"Bundling Barang\" aktif",
+            "Klik \"Tambah Barang\", pilih 1 barang, isi Qty (>=1) dan pastikan harga terisi sehingga Total > 0",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menyimpan data bundling, menampilkan notifikasi sukses, lalu redirect ke halaman /central-goods. Data bundling baru muncul pada daftar Barang - Produk & Jasa",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CGV3_003",
+        "module": "Persediaan - Barang - Produk & Jasa (Tambah v3)",
+        "test_case": "Simpan ditolak ketika jenis barang belum dipilih",
+        "test_steps": [
+            "Buka halaman /central-goods/create",
+            "Jangan memilih Jenis Barang",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pop-up error \"Jenis barang tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CGV3_004",
+        "module": "Persediaan - Barang - Produk & Jasa (Tambah v3)",
+        "test_case": "Simpan ditolak ketika bundling tidak memiliki komponen",
+        "test_steps": [
+            "Buka halaman /central-goods/create?type=bundling",
+            "Isi Nama bundling",
+            "Jangan menambahkan item bundling (Total bundling = 0)",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Data bundling tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CGV3_005",
+        "module": "Persediaan - Barang - Produk & Jasa (Tambah v3)",
+        "test_case": "Simpan ditolak untuk bundling biaya ketika akun pendapatan belum dipilih",
+        "test_steps": [
+            "Buka halaman /central-goods/create?type=bundling",
+            "Isi Nama bundling",
+            "Pilih mode \"Bundling Biaya\"",
+            "Klik \"Tambah Biaya\" lalu pilih 1 akun biaya dan isi nilai biaya sehingga Total > 0",
+            "Biarkan field Akun Pendapatan kosong",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Akun Pendapatan tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "CGV3_006",
+        "module": "Persediaan - Barang - Produk & Jasa (Tambah v3)",
+        "test_case": "Saldo awal: simpan ditolak ketika akun persediaan atau pemetaan gain stok belum siap",
+        "test_steps": [
+            "Buka halaman /central-goods/create?type=bundling",
+            "Isi Nama bundling dan tambahkan minimal 1 komponen bundling agar Total > 0",
+            "Tambahkan 1 baris Saldo Awal (isi Tanggal, Qty > 0, dan Harga)",
+            "Biarkan Akun Persediaan kosong lalu klik tombol simpan",
+            "Ulangi: pilih Akun Persediaan, pastikan pemetaan akun gain stok belum diisi (jika kondisi sistem seperti itu), lalu klik simpan"
+        ],
+        "expected_result": "Sistem menolak simpan dan menampilkan error sesuai kondisi: \"Pilih akun persediaan\" atau \"Pilih akun gain stok di menu Pemetaan Akun > Persediaan\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSP_001",
+        "module": "Persediaan - Produk Reseller (Tambah)",
+        "test_case": "Navigasi: buka modal tambah produk reseller dari halaman list",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Persediaan > Produk Reseller",
+            "Buka menu Persediaan > Produk Reseller (halaman /reseller-product)",
+            "Klik tombol \"Tambah Produk Reseller\""
+        ],
+        "expected_result": "Sistem menampilkan modal \"Tambah Produk Reseller\" berisi field Nama Produk, Qty, Harga, serta tombol \"Simpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSP_002",
+        "module": "Persediaan - Produk Reseller (Tambah)",
+        "test_case": "Simpan produk reseller berhasil",
+        "test_steps": [
+            "Buka halaman /reseller-product",
+            "Klik \"Tambah Produk Reseller\"",
+            "Isi Nama Produk",
+            "Isi Qty (>= 1)",
+            "Isi Harga (>= 0)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan produk reseller, menampilkan notifikasi sukses, lalu me-refresh halaman. Data baru muncul pada tabel (Nama Produk, Qty, Harga, Total Nilai, Dibuat Oleh)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "RSP_003",
+        "module": "Persediaan - Produk Reseller (Tambah)",
+        "test_case": "Simpan ditolak ketika field wajib belum diisi",
+        "test_steps": [
+            "Buka halaman /reseller-product",
+            "Klik \"Tambah Produk Reseller\"",
+            "Klik \"Simpan\" dengan Nama Produk kosong",
+            "Isi Nama Produk, klik \"Simpan\" dengan Qty kosong",
+            "Isi Qty, klik \"Simpan\" dengan Harga kosong"
+        ],
+        "expected_result": "Sistem menolak simpan dan menampilkan pop-up error sesuai kondisi: \"Nama produk tidak boleh kosong.\" / \"Qty tidak boleh kosong.\" / \"Harga tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SOO_001",
+        "module": "Persediaan - Perintah Stok Opname (Tambah)",
+        "test_case": "Navigasi: buka modal tambah perintah opname dari halaman list",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Persediaan > Perintah Stok Opname",
+            "Buka menu Persediaan > Perintah Stok Opname (halaman /stock-opname-order)",
+            "Klik tombol \"Tambah Perintah opname\""
+        ],
+        "expected_result": "Sistem menampilkan modal \"Perintah Stok Opname\" berisi field Tanggal, Penanggung jawab, Dikerjakan oleh, Kategori Barang (opsional), Gudang, dan Keterangan, serta tombol \"Simpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SOO_002",
+        "module": "Persediaan - Perintah Stok Opname (Tambah)",
+        "test_case": "Simpan perintah stok opname berhasil",
+        "test_steps": [
+            "Buka halaman /stock-opname-order",
+            "Klik \"Tambah Perintah opname\"",
+            "Isi Tanggal",
+            "Pilih Gudang",
+            "Isi Penanggung jawab dan Dikerjakan oleh (opsional sesuai kebutuhan)",
+            "Opsional: centang \"Kategori Barang\" lalu pilih 1+ kategori barang",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan perintah stok opname, menampilkan notifikasi sukses, lalu redirect ke halaman /stock-opname-order. Data baru muncul di tabel dengan nomor berformat OP-P<ddmmyy>.<###> dan status awal \"Menunggu Eksekusi\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SOO_003",
+        "module": "Persediaan - Perintah Stok Opname (Tambah)",
+        "test_case": "Simpan ditolak ketika tanggal belum diisi atau mapping akun belum disetting",
+        "test_steps": [
+            "Buka halaman /stock-opname-order",
+            "Klik \"Tambah Perintah opname\"",
+            "Klik \"Simpan\" dengan Tanggal kosong",
+            "Ulangi: isi Tanggal, lalu simpan ketika mapping akun penyesuaian stok & persediaan belum disetting (jika kondisi sistem seperti itu)"
+        ],
+        "expected_result": "Jika tanggal kosong, sistem menolak simpan dan menampilkan peringatan \"Tanggal tidak boleh kosong.\". Jika mapping akun belum disetting, sistem menolak simpan dan menampilkan pesan \"Mapping akun penyersuaian stock dan persedian belum di setting, silahkan setting pada menu mapping akun\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GAJ_001",
+        "module": "Persediaan - Penyesuaian Barang (Tambah)",
+        "test_case": "Navigasi: buka modal tambah penyesuaian barang dari halaman list",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Persediaan > Penyesuaian",
+            "Buka menu Persediaan > Penyesuaian (halaman /goods-adjustment)",
+            "Klik tombol \"Tambah Penyesuaian Barang\""
+        ],
+        "expected_result": "Sistem menampilkan modal \"Penyesuaian Barang\" berisi field Tanggal, Nomor, Yang Mengerjakan, Outlet, Keterangan, tabel Barang (pilih barang, tipe penyesuaian, kuantitas), serta tombol \"Tambah Barang\" dan \"Simpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GAJ_002",
+        "module": "Persediaan - Penyesuaian Barang (Tambah)",
+        "test_case": "Simpan penyesuaian barang berhasil",
+        "test_steps": [
+            "Buka halaman /goods-adjustment",
+            "Klik \"Tambah Penyesuaian Barang\"",
+            "Isi Tanggal",
+            "Pilih Outlet",
+            "Isi field \"Yang Mengerjakan\"",
+            "Klik \"Tambah Barang\"",
+            "Pilih 1 barang, pilih tipe penyesuaian (penambahan/pengurangan), isi Kuantitas (>0)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan penyesuaian barang, menampilkan notifikasi sukses, lalu redirect ke halaman /goods-adjustment. Data baru muncul pada list dengan nomor berformat PS.<ddmmyy>.<###>",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GAJ_003",
+        "module": "Persediaan - Penyesuaian Barang (Tambah)",
+        "test_case": "Simpan ditolak ketika tanggal atau yang mengerjakan belum diisi",
+        "test_steps": [
+            "Buka halaman /goods-adjustment",
+            "Klik \"Tambah Penyesuaian Barang\"",
+            "Klik \"Simpan\" saat Tanggal kosong",
+            "Isi Tanggal, lalu klik \"Simpan\" saat field \"Yang Mengerjakan\" kosong"
+        ],
+        "expected_result": "Sistem menolak simpan dan menampilkan peringatan: \"Tanggal tidak boleh kosong .\" atau \"Input kolom yang mengerjakan wajib di isi .\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GAJ_004",
+        "module": "Persediaan - Penyesuaian Barang (Tambah)",
+        "test_case": "Simpan ditolak ketika mapping akun persediaan/gain/loss belum disetting",
+        "test_steps": [
+            "Buka halaman /goods-adjustment",
+            "Klik \"Tambah Penyesuaian Barang\"",
+            "Isi Tanggal dan field \"Yang Mengerjakan\"",
+            "Pilih Outlet",
+            "Tambah 1 barang (pilih barang dan isi kuantitas)",
+            "Klik \"Simpan\" pada kondisi mapping akun persediaan/gain/loss belum disetting (jika kondisi sistem seperti itu)"
+        ],
+        "expected_result": "Sistem menolak simpan dan menampilkan pesan error dari server terkait mapping akun yang belum disetting; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "TRG_001",
+        "module": "Persediaan - Transfer Barang (Buat)",
+        "test_case": "Navigasi: akses halaman \"Buat Transfer Barang\"",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Persediaan > Transfer Barang",
+            "Buka menu Persediaan > Transfer Barang (halaman /transfer-goods)",
+            "Klik tombol untuk membuat transfer (menuju /transfer-goods/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /transfer-goods/create dan menampilkan form: Kirim Dari, Kirim Ke, Tanggal Proses, Nama Pengirim, No Transaksi (auto), Keterangan, Kategori Barang, tabel daftar barang, serta tombol simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "TRG_002",
+        "module": "Persediaan - Transfer Barang (Buat)",
+        "test_case": "Simpan transfer berhasil (bahan baku)",
+        "test_steps": [
+            "Buka halaman /transfer-goods/create",
+            "Pilih Kirim Dari dan Kirim Ke",
+            "Isi Tanggal Proses dan Nama Pengirim",
+            "Pilih Kategori Barang = Bahan Baku",
+            "Klik \"Tambah Barang\", pilih 1 barang bahan baku dan isi Kuantitas (>= 1)",
+            "Klik tombol simpan lalu konfirmasi \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan transfer, menampilkan notifikasi sukses \"Data has been saved\" (atau notifikasi sukses lainnya), lalu redirect ke /transfer-goods. Data transfer baru muncul pada list dengan nomor berawalan TF.<ddmmyy>.<###>",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "TRG_003",
+        "module": "Persediaan - Transfer Barang (Buat)",
+        "test_case": "Simpan transfer ditolak ketika barang/kuantitas/kategori/tanggal belum lengkap",
+        "test_steps": [
+            "Buka halaman /transfer-goods/create",
+            "Klik simpan ketika ada baris barang namun Barang belum dipilih",
+            "Pilih barang, isi Kuantitas 0 atau kosong lalu klik simpan",
+            "Pilih Kategori Barang kosong lalu klik simpan",
+            "Isi Kategori Barang namun kosongkan Tanggal Proses lalu klik simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi: \"Barang harus dipilih\" / \"Kuantitas tidak boleh kosong.\" / \"Kategori Barang tidak boleh kosong.\" / \"Tanggal tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "TRG_004",
+        "module": "Persediaan - Transfer Barang (Buat)",
+        "test_case": "Simpan transfer ditolak ketika kuantitas melebihi stok",
+        "test_steps": [
+            "Buka halaman /transfer-goods/create",
+            "Pilih Kirim Dari dan Kirim Ke",
+            "Isi Tanggal Proses dan Nama Pengirim",
+            "Pilih Kategori Barang (mis. Bahan Baku)",
+            "Tambah 1 barang lalu isi Kuantitas lebih besar dari Stock yang tampil",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Ada jumlah pengiriman yang melebihi stok, segera periksa kembali.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "TRG_005",
+        "module": "Persediaan - Transfer Barang (Buat)",
+        "test_case": "Transfer non bahan baku mewajibkan akun biaya per item",
+        "test_steps": [
+            "Buka halaman /transfer-goods/create",
+            "Pilih Kirim Dari dan Kirim Ke",
+            "Isi Tanggal Proses dan Nama Pengirim",
+            "Pilih Kategori Barang = Stationery / Sparepart (atau Kebersihan)",
+            "Tambah 1 barang, isi Kuantitas (>=1), namun kosongkan Akun Biaya",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Akun Biaya tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SGDV2_001",
+        "module": "Persediaan - Pengiriman Barang Pendukung (Buat v2)",
+        "test_case": "Navigasi: akses halaman \"Tambah Data\" pengiriman barang pendukung",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Persediaan > Pengiriman Barang Pendukung",
+            "Buka menu Persediaan > Pengiriman Barang Pendukung (halaman /supporting-good-delivery)",
+            "Klik tombol untuk menambah pengiriman (menuju /supporting-good-delivery/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /supporting-good-delivery/create dan menampilkan tabel depot beserta perhitungan stok (tutup/tissue/tag/galon), komponen rute tanggal, field Penanggung Jawab dan Keterangan, serta tombol \"Simpan Pengiriman\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SGDV2_002",
+        "module": "Persediaan - Pengiriman Barang Pendukung (Buat v2)",
+        "test_case": "Simpan pengiriman berhasil dan redirect ke halaman detail",
+        "test_steps": [
+            "Buka halaman /supporting-good-delivery/create",
+            "Isi \"Penanggung Jawab\"",
+            "Pada salah satu depot, pilih pengirim untuk Tutup/Tissue/Tag/Galon (sender)",
+            "Isi/ubah Rencana Qty Kirim (jika diperlukan) dan pastikan minimal ada depot yang akan dikirim (Buat Pengiriman aktif)",
+            "Klik tombol \"Simpan Pengiriman\" lalu konfirmasi \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan pengiriman barang pendukung, menampilkan notifikasi sukses, lalu redirect ke halaman detail pengiriman (/supporting-good-delivery/<id>/detail)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SGDV2_003",
+        "module": "Persediaan - Pengiriman Barang Pendukung (Buat v2)",
+        "test_case": "Simpan ditolak ketika penanggung jawab belum diisi",
+        "test_steps": [
+            "Buka halaman /supporting-good-delivery/create",
+            "Biarkan field \"Penanggung Jawab\" kosong",
+            "Klik tombol \"Simpan Pengiriman\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Penanggung jawab harus diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SGDV2_004",
+        "module": "Persediaan - Pengiriman Barang Pendukung (Buat v2)",
+        "test_case": "Simpan ditolak ketika pengirim belum dipilih",
+        "test_steps": [
+            "Buka halaman /supporting-good-delivery/create",
+            "Isi \"Penanggung Jawab\"",
+            "Pastikan pengirim (sender) untuk Tutup/Tissue/Tag/Galon belum dipilih pada depot",
+            "Klik tombol \"Simpan Pengiriman\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Pilih pengirim\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GREQ_001",
+        "module": "Persediaan - Permintaan Barang (Buat)",
+        "test_case": "Navigasi: halaman \"Buat Permintaan Barang\" dapat diakses dari menu Permintaan Barang",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu Permintaan Barang",
+            "Buka menu Permintaan Barang (halaman /good-request)",
+            "Klik tombol tambah/buat permintaan (menuju /good-request/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /good-request/create dan menampilkan nomor (No. # SRF-...), pilihan Depot, Tanggal, Tipe Barang, Penanggung Jawab, Keterangan, tabel Daftar Barang, serta tombol \"Simpan Permintaan Barang\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GREQ_002",
+        "module": "Persediaan - Permintaan Barang (Buat)",
+        "test_case": "Simpan permintaan barang berhasil",
+        "test_steps": [
+            "Buka halaman /good-request/create",
+            "Pilih Depot",
+            "Pastikan Tanggal terisi (atau ubah sesuai kebutuhan)",
+            "Pilih Tipe Barang (mis. Sparepart)",
+            "Isi Penanggung Jawab",
+            "Klik \"Tambah Barang\" bila belum ada baris",
+            "Pilih 1 Nama Barang dan isi Quantity (>=1)",
+            "Klik \"Simpan Permintaan Barang\" lalu konfirmasi \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan permintaan barang, menampilkan notifikasi sukses (mis. \"Permintaan barang berhasil disimpan\"), lalu redirect ke halaman daftar permintaan (/good-request)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GREQ_003",
+        "module": "Persediaan - Permintaan Barang (Buat)",
+        "test_case": "Simpan ditolak ketika kolom wajib belum diisi",
+        "test_steps": [
+            "Buka halaman /good-request/create",
+            "Kosongkan salah satu kolom wajib (mis. Depot atau Penanggung Jawab)",
+            "Klik \"Simpan Permintaan Barang\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Semua kolom harus diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GREQ_004",
+        "module": "Persediaan - Permintaan Barang (Buat)",
+        "test_case": "Simpan ditolak ketika ada item barang yang tidak lengkap",
+        "test_steps": [
+            "Buka halaman /good-request/create",
+            "Pilih Depot dan isi Penanggung Jawab",
+            "Tambah 1 baris barang",
+            "Biarkan Nama Barang kosong atau isi Quantity = 0",
+            "Klik \"Simpan Permintaan Barang\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Semua kolom harus diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GREQ_005",
+        "module": "Persediaan - Permintaan Barang (Buat)",
+        "test_case": "Ganti tipe barang memuat ulang daftar barang",
+        "test_steps": [
+            "Buka halaman /good-request/create",
+            "Ubah Tipe Barang (mis. dari Sparepart ke Stationery / Kebersihan)",
+            "Perhatikan dropdown Nama Barang pada tabel Daftar Barang"
+        ],
+        "expected_result": "Sistem memuat ulang daftar barang sesuai tipe yang dipilih dan baris item kembali ke kondisi awal (barang belum dipilih, quantity kosong/0)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_CONF_001",
+        "module": "Pembelian - Permintaan Barang CV (Konfirmasi)",
+        "test_case": "Navigasi: halaman \"Tambah Konfirmasi Permintaan Barang\" dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pembelian Permintaan Barang CV",
+            "Buka halaman /good-request-groups/create"
+        ],
+        "expected_result": "Sistem membuka halaman /good-request-groups/create dan menampilkan field Nomor (readonly), CV, Tanggal, Keterangan, tabel Daftar Barang (expand detail per barang), serta tombol \"Setujui\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_CONF_002",
+        "module": "Pembelian - Permintaan Barang CV (Konfirmasi)",
+        "test_case": "Memilih CV memuat daftar barang permintaan yang belum digroup",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create",
+            "Pilih salah satu CV",
+            "Perhatikan tabel Daftar Barang"
+        ],
+        "expected_result": "Sistem memuat data barang permintaan untuk CV yang dipilih (nama barang, kode, qty, satuan) dan detail permintaan dapat dibuka (expand) untuk melihat daftar depot & qty per permintaan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_CONF_003",
+        "module": "Pembelian - Permintaan Barang CV (Konfirmasi)",
+        "test_case": "Setujui berhasil dan membuat group + PO per supplier",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create",
+            "Pilih CV dan pastikan Tanggal terisi",
+            "Pada salah satu barang, pilih Supplier",
+            "Klik baris barang untuk membuka detail, centang minimal 1 baris detail (permintaan depot) dan pastikan Qty Approve terisi (>=0)",
+            "Klik tombol \"Setujui\" lalu konfirmasi \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan konfirmasi permintaan barang, menampilkan notifikasi sukses (mis. \"Good Request Group & PO berhasil dibuat\"), dan redirect ke halaman /good-request-groups; data group terbentuk serta PO per supplier dibuat sesuai barang yang dipilih",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_CONF_004",
+        "module": "Pembelian - Permintaan Barang CV (Konfirmasi)",
+        "test_case": "Setujui ditolak ketika CV atau Tanggal belum diisi",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create",
+            "Biarkan CV kosong (atau kosongkan Tanggal)",
+            "Klik tombol \"Setujui\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"CV dan Tanggal harus diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "GRP_CONF_005",
+        "module": "Pembelian - Permintaan Barang CV (Konfirmasi)",
+        "test_case": "Setujui ditolak ketika tidak ada barang dipilih atau supplier belum diisi",
+        "test_steps": [
+            "Buka halaman /good-request-groups/create",
+            "Pilih CV dan pastikan Tanggal terisi",
+            "Tanpa mencentang barang apapun, klik tombol \"Setujui\"",
+            "Centang salah satu barang namun kosongkan Supplier, lalu klik tombol \"Setujui\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi: \"Pilih minimal satu barang untuk disimpan.\" atau \"Supplier untuk barang \\\"<nama barang>\\\" harus diisi.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "ACCV3_001",
+        "module": "Buku Besar - Daftar Akun (Tambah v3)",
+        "test_case": "Navigasi: halaman tambah akun dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Buku Besar > Daftar Akun",
+            "Buka menu Buku Besar > Daftar Akun (halaman /accounts)",
+            "Klik tombol tambah akun (menuju /accounts/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /accounts/create dan menampilkan form tambah akun (klasifikasi akun, tipe akun, level akun, sub akun, opsi kode otomatis, nama, saldo awal untuk tipe Detail) serta tombol \"Simpan Akun\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "ACCV3_002",
+        "module": "Buku Besar - Daftar Akun (Tambah v3)",
+        "test_case": "Simpan akun berhasil (happy path) dengan kode otomatis",
+        "test_steps": [
+            "Buka halaman /accounts/create",
+            "Pilih Klasifikasi Akun (mis. Asset)",
+            "Pilih Tipe Akun = Detail",
+            "Pilih Level Akun (mis. 2) lalu pilih Sub Akun sesuai yang muncul",
+            "Pastikan \"Kode Perkiraan Otomatis\" aktif",
+            "Isi Nama akun",
+            "Isi Saldo Awal (opsional, mis. 0 atau nilai tertentu)",
+            "Klik tombol \"Simpan Akun\""
+        ],
+        "expected_result": "Sistem menyimpan akun baru, menampilkan notifikasi sukses (mis. \"Data has been saved\"), lalu redirect ke halaman daftar akun (/accounts)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "ACCV3_003",
+        "module": "Buku Besar - Daftar Akun (Tambah v3)",
+        "test_case": "Validasi: nama akun wajib diisi",
+        "test_steps": [
+            "Buka halaman /accounts/create",
+            "Biarkan field Nama kosong",
+            "Klik tombol \"Simpan Akun\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Nama Akun tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "ACCV3_004",
+        "module": "Buku Besar - Daftar Akun (Tambah v3)",
+        "test_case": "Validasi: nomor akun ditolak jika sudah digunakan (kode manual)",
+        "test_steps": [
+            "Buka halaman /accounts/create",
+            "Nonaktifkan checkbox \"Kode Perkiraan Otomatis\"",
+            "Isi Nomor Akun dengan nomor yang sudah ada di sistem",
+            "Isi Nama akun dan field lain yang diperlukan",
+            "Klik tombol \"Simpan Akun\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error \"Nomor akun sudah digunakan\" (beserta nama akun yang memakai nomor tersebut); data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "ACCV3_005",
+        "module": "Buku Besar - Daftar Akun (Tambah v3)",
+        "test_case": "Worst case: simpan ditolak ketika konfigurasi level/sub akun belum lengkap",
+        "test_steps": [
+            "Buka halaman /accounts/create",
+            "Isi Nama akun",
+            "Biarkan Klasifikasi/Tipe/Level/Sub Akun tidak lengkap (mis. pilih Level 2/3 namun Sub Akun tidak dipilih)",
+            "Klik tombol \"Simpan Akun\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan notifikasi error; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "MAPACC_001",
+        "module": "Buku Besar - Pemetaan Akun",
+        "test_case": "Navigasi: halaman Pemetaan Akun dapat diakses dari menu Buku Besar",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Buku Besar > Pemetaan Akun",
+            "Buka menu Buku Besar > Pemetaan Akun (halaman /mapping-account)"
+        ],
+        "expected_result": "Sistem membuka halaman /mapping-account dan menampilkan form Pemetaan Akun dengan tab (Perusahaan, Penjualan/Pembelian, Persediaan, Barang, Pengeluaran & Setoran) serta tombol simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "MAPACC_002",
+        "module": "Buku Besar - Pemetaan Akun",
+        "test_case": "Simpan pemetaan akun berhasil (update mapping)",
+        "test_steps": [
+            "Buka halaman /mapping-account",
+            "Pilih beberapa akun pada form (mis. Ekuitas Saldo Awal, Laba Ditahan, Persediaan: akun persediaan/gain stok/loss stok)",
+            "Klik tombol simpan"
+        ],
+        "expected_result": "Sistem menyimpan pemetaan akun, menampilkan notifikasi sukses (mis. \"Data has been saved\"), lalu reload/redirect kembali ke /mapping-account",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "MAPACC_003",
+        "module": "Buku Besar - Pemetaan Akun",
+        "test_case": "Pemetaan akun tersimpan dan muncul kembali saat halaman dibuka ulang",
+        "test_steps": [
+            "Lakukan simpan pemetaan akun",
+            "Buka ulang halaman /mapping-account",
+            "Periksa field-field yang sebelumnya dipilih"
+        ],
+        "expected_result": "Nilai pemetaan akun yang dipilih sebelumnya tetap tampil sebagai nilai terpilih (persist) pada masing-masing dropdown",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "MAPACC_004",
+        "module": "Buku Besar - Pemetaan Akun",
+        "test_case": "Worst case: data pemetaan awal belum ada, halaman tetap bisa digunakan",
+        "test_steps": [
+            "Pastikan data pemetaan akun belum tersedia di database (mapping account belum pernah dibuat) atau record pemetaan terhapus",
+            "Buka halaman /mapping-account"
+        ],
+        "expected_result": "Sistem tetap menampilkan halaman Pemetaan Akun dan memungkinkan user menyimpan pemetaan (sistem membuat record default bila diperlukan); tidak terjadi error 500",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "JRN_001",
+        "module": "Buku Besar - Jurnal (Tambah)",
+        "test_case": "Navigasi: halaman tambah jurnal manual dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Buku Besar > Jurnal",
+            "Buka menu Buku Besar > Jurnal (halaman /journals)",
+            "Klik tombol tambah jurnal (menuju /journals/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /journals/create dan menampilkan form Tambah Jurnal (Depot, Nomor, Tanggal, Keterangan) serta tabel baris jurnal (Akun, Debit, Kredit, Keterangan, Lampiran, opsi RAB) dan ringkasan Total Debit/Kredit",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "JRN_002",
+        "module": "Buku Besar - Jurnal (Tambah)",
+        "test_case": "Simpan jurnal berhasil (debit dan kredit seimbang)",
+        "test_steps": [
+            "Buka halaman /journals/create",
+            "Pilih Depot",
+            "Pastikan Nomor terisi (atau isi manual bila kosong)",
+            "Isi Tanggal",
+            "Klik \"Tambah\" untuk menambah baris jurnal (jika belum ada baris)",
+            "Pada baris 1: pilih Akun dan isi nilai Debit",
+            "Pada baris 2: pilih Akun dan isi nilai Kredit dengan jumlah yang sama",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan jurnal, menampilkan notifikasi sukses (mis. \"Data has been saved\"), lalu redirect ke halaman daftar jurnal (/journals)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "JRN_003",
+        "module": "Buku Besar - Jurnal (Tambah)",
+        "test_case": "Simpan ditolak ketika tanggal atau nomor kosong",
+        "test_steps": [
+            "Buka halaman /journals/create",
+            "Kosongkan field Tanggal lalu klik \"Simpan\"",
+            "Ulangi: isi Tanggal, kosongkan field Nomor lalu klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi: \"Tanggal tidak boleh kosong.\" atau \"Nomor tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "JRN_004",
+        "module": "Buku Besar - Jurnal (Tambah)",
+        "test_case": "Simpan ditolak ketika jurnal tidak balance",
+        "test_steps": [
+            "Buka halaman /journals/create",
+            "Pilih Depot dan isi Tanggal",
+            "Buat 2 baris jurnal dengan total Debit tidak sama dengan total Kredit",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Journal Yang di simpan harus balance.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "JRN_005",
+        "module": "Buku Besar - Jurnal (Tambah)",
+        "test_case": "Worst case: simpan ditolak ketika akun sudah dikunci (cutoff)",
+        "test_steps": [
+            "Buka halaman /journals/create",
+            "Pilih Depot dan isi Tanggal yang berada pada atau sebelum tanggal cutoff akun",
+            "Pilih salah satu Akun yang sudah memiliki cutoff_date (akun sudah dikunci)",
+            "Isi jurnal hingga balance lalu klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error \"Akun <nama akun> telah dikunci per tanggal <tanggal cutoff>\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EXPT_001",
+        "module": "Pengeluaran - Jenis Pengeluaran (Tambah)",
+        "test_case": "Navigasi: halaman tambah jenis pengeluaran dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu Jenis Pengeluaran",
+            "Buka menu Jenis Pengeluaran (halaman /expenditure-type)",
+            "Klik tombol tambah (menuju /expenditure-type/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /expenditure-type/create dan menampilkan field Nama, Akun, toggle Tampil di Depot, Tampil di kas kecil (Pengeluaran), Tampil di kas kecil (Pemasukan), serta tombol Simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EXPT_002",
+        "module": "Pengeluaran - Jenis Pengeluaran (Tambah)",
+        "test_case": "Simpan jenis pengeluaran berhasil",
+        "test_steps": [
+            "Buka halaman /expenditure-type/create",
+            "Isi Nama (mis. \"Komisi Mitra\")",
+            "Pilih Akun (opsional, bila diperlukan)",
+            "Atur toggle tampil (Depot/Kas Kecil Pengeluaran/Kas Kecil Pemasukan) sesuai kebutuhan",
+            "Klik tombol Simpan"
+        ],
+        "expected_result": "Sistem menyimpan jenis pengeluaran, menampilkan notifikasi sukses (mis. \"Data has been saved\"), lalu redirect ke halaman /expenditure-type",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EXPT_003",
+        "module": "Pengeluaran - Jenis Pengeluaran (Tambah)",
+        "test_case": "Validasi: nama jenis pengeluaran wajib diisi",
+        "test_steps": [
+            "Buka halaman /expenditure-type/create",
+            "Biarkan field Nama kosong",
+            "Klik tombol Simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Nama Jenis Pengeluaran tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "OSPV2V3_001",
+        "module": "Pengeluaran - Pengeluaran Depot (Buat v3)",
+        "test_case": "Navigasi: halaman buat pengeluaran depot dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses Pengeluaran Depot",
+            "Buka menu Pengeluaran Depot (halaman /outlet-spending)",
+            "Klik tombol tambah (menuju /outlet-spending/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /outlet-spending/create dan menampilkan form (Tanggal, CV, SOF, To, Diterima Oleh, Keterangan) serta tabel input pengeluaran dan tombol Simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "OSPV2V3_002",
+        "module": "Pengeluaran - Pengeluaran Depot (Buat v3)",
+        "test_case": "Simpan pengeluaran berhasil (tanpa pembagian biaya)",
+        "test_steps": [
+            "Buka halaman /outlet-spending/create",
+            "Isi Tanggal",
+            "Pilih CV lalu pilih SOF (akun sumber dana) sesuai CV",
+            "Isi To dan Diterima Oleh",
+            "Pastikan opsi \"Bagi Biaya Ke Seluruh Depot\" tidak dicentang",
+            "Klik tombol \"Tambah\" untuk menambah 1 baris pengeluaran",
+            "Pada baris tersebut: pilih Depot, pilih Biaya (Jenis Pengeluaran), isi Jenis Transaksi, isi Deskripsi, isi Nominal (>0)",
+            "Klik tombol \"Simpan\" lalu konfirmasi \"Ya, Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan pengeluaran depot, menampilkan notifikasi sukses, lalu redirect ke halaman /outlet-spending",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "OSPV2V3_003",
+        "module": "Pengeluaran - Pengeluaran Depot (Buat v3)",
+        "test_case": "Simpan pengeluaran berhasil dengan pembagian biaya ke seluruh depot",
+        "test_steps": [
+            "Buka halaman /outlet-spending/create",
+            "Isi Tanggal",
+            "Pilih CV lalu pilih SOF (akun sumber dana) sesuai CV",
+            "Isi To dan Diterima Oleh",
+            "Centang opsi \"Bagi Biaya Ke Seluruh Depot\"",
+            "Isi 1 baris utama total biaya dan buat pembagian ke beberapa depot sampai total pembagian sesuai total biaya",
+            "Klik tombol \"Simpan\" lalu konfirmasi \"Ya, Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan pengeluaran dengan pembagian biaya (membuat pengeluaran per depot sesuai pembagian), menampilkan notifikasi sukses, lalu redirect ke /outlet-spending",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "OSPV2V3_004",
+        "module": "Pengeluaran - Pengeluaran Depot (Buat v3)",
+        "test_case": "Validasi: tanggal, To, dan Diterima Oleh wajib diisi",
+        "test_steps": [
+            "Buka halaman /outlet-spending/create",
+            "Klik tombol \"Simpan\" saat Tanggal masih kosong",
+            "Isi Tanggal, kosongkan To lalu klik tombol \"Simpan\"",
+            "Isi To, kosongkan Diterima Oleh lalu klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi: \"Tanggal tidak boleh kosong.\" / \"Form To tidak boleh kosong.\" / \"Form Diterima Oleh tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "OSPV2V3_005",
+        "module": "Pengeluaran - Pengeluaran Depot (Buat v3)",
+        "test_case": "Validasi pembagian biaya: total pembagian harus sesuai",
+        "test_steps": [
+            "Buka halaman /outlet-spending/create",
+            "Isi Tanggal, pilih CV & SOF, isi To dan Diterima Oleh",
+            "Centang opsi \"Bagi Biaya Ke Seluruh Depot\"",
+            "Isi total biaya pada baris utama, lalu buat pembagian ke depot dengan total pembagian tidak sama dengan total biaya",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Total Pembagian biaya tidak sesuai\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "OSPV2V3_006",
+        "module": "Pengeluaran - Pengeluaran Depot (Buat v3)",
+        "test_case": "Worst case: simpan ditolak ketika CV atau SOF belum dipilih",
+        "test_steps": [
+            "Buka halaman /outlet-spending/create",
+            "Isi Tanggal, To, dan Diterima Oleh",
+            "Biarkan CV kosong (atau pilih CV namun SOF masih kosong)",
+            "Isi 1 baris pengeluaran dengan Nominal (>0)",
+            "Klik tombol \"Simpan\" lalu konfirmasi \"Ya, Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan notifikasi error (dari server) karena CV/SOF belum dipilih; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PTC_001",
+        "module": "Pengeluaran - Kas Kecil (Tambah)",
+        "test_case": "Navigasi: halaman tambah kas kecil dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu Kas Kecil",
+            "Buka menu Kas Kecil (halaman /petty-cash)",
+            "Klik tombol tambah (menuju /petty-cash/create)"
+        ],
+        "expected_result": "Sistem membuka halaman /petty-cash/create dan menampilkan field Tanggal, Perusahaan, User, CV, DEPOT, Akun, serta tombol Simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PTC_002",
+        "module": "Pengeluaran - Kas Kecil (Tambah)",
+        "test_case": "Perusahaan dipilih memuat daftar user, dan pilihan user mengisi nama user",
+        "test_steps": [
+            "Buka halaman /petty-cash/create",
+            "Pilih Perusahaan",
+            "Pastikan dropdown User terisi dan dapat dipilih",
+            "Pilih salah satu User"
+        ],
+        "expected_result": "Sistem memuat daftar user sesuai perusahaan, dan saat user dipilih data user tersimpan (id & nama) untuk proses simpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PTC_003",
+        "module": "Pengeluaran - Kas Kecil (Tambah)",
+        "test_case": "Memilih CV memfilter depot dan auto-select depot pertama",
+        "test_steps": [
+            "Buka halaman /petty-cash/create",
+            "Pilih CV",
+            "Perhatikan dropdown DEPOT"
+        ],
+        "expected_result": "Sistem menampilkan hanya depot yang sesuai CV yang dipilih, mengaktifkan dropdown DEPOT, dan otomatis memilih depot pertama bila tersedia",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PTC_004",
+        "module": "Pengeluaran - Kas Kecil (Tambah)",
+        "test_case": "Simpan kas kecil berhasil",
+        "test_steps": [
+            "Buka halaman /petty-cash/create",
+            "Isi Tanggal",
+            "Pilih Perusahaan dan User",
+            "Pilih CV dan pastikan DEPOT terpilih",
+            "Pilih Akun",
+            "Klik tombol Simpan"
+        ],
+        "expected_result": "Sistem menyimpan kas kecil, menampilkan notifikasi sukses (mis. \"Data has been saved\"), lalu redirect ke halaman /petty-cash",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "PTC_005",
+        "module": "Pengeluaran - Kas Kecil (Tambah)",
+        "test_case": "Validasi: tanggal wajib diisi",
+        "test_steps": [
+            "Buka halaman /petty-cash/create",
+            "Biarkan field Tanggal kosong",
+            "Klik tombol Simpan"
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan \"Tanggal tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBSET_001",
+        "module": "HR - Bonus Karyawan (Pengaturan)",
+        "test_case": "Navigasi: halaman Pengaturan Bonus Karyawan dapat diakses",
+        "test_steps": [
+            "Login menggunakan user yang memiliki akses menu Bonus Karyawan",
+            "Buka menu Bonus Karyawan > Pengaturan Bonus Karyawan (halaman /employee-bonus-setting)"
+        ],
+        "expected_result": "Sistem membuka halaman /employee-bonus-setting dan menampilkan tabel Pengaturan Bonus serta tombol \"Tambah\" untuk menambah pengaturan bonus",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBSET_002",
+        "module": "HR - Bonus Karyawan (Pengaturan)",
+        "test_case": "Tambah kategori karyawan berhasil (bagian tambah)",
+        "test_steps": [
+            "Buka halaman /employee-bonus-setting",
+            "Klik tombol \"Tambah\" pada card Pengaturan Bonus (membuka modal Pengaturan Bonus)",
+            "Klik tombol \"Buat Kategori\"",
+            "Isi Nama kategori karyawan",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan kategori karyawan, menampilkan notifikasi sukses (mis. \"Data has been saved\"), dan halaman direfresh; kategori baru tersedia untuk dipilih pada dropdown Kategori di pengaturan bonus",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBSET_003",
+        "module": "HR - Bonus Karyawan (Pengaturan)",
+        "test_case": "Tambah pengaturan bonus karyawan berhasil (bagian tambah)",
+        "test_steps": [
+            "Buka halaman /employee-bonus-setting",
+            "Klik tombol \"Tambah\" pada card Pengaturan Bonus (membuka modal Pengaturan Bonus)",
+            "Klik tombol \"Tambah\" di dalam modal untuk menambah 1 baris",
+            "Pilih Kategori, pilih Simbol, isi Persentase, dan isi Nominal Bonus",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan pengaturan bonus, menampilkan notifikasi sukses (mis. \"Data has been saved\"), lalu halaman direfresh dan data pengaturan bonus baru tampil pada tabel Pengaturan Bonus",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBMON_001",
+        "module": "HR - Bonus Karyawan (Simpan Bulan Bonus)",
+        "test_case": "Simpan bulan bonus berhasil",
+        "test_steps": [
+            "Buka halaman /employee-bonus",
+            "Pilih Bulan (mis. Januari)",
+            "Pilih Tahun (mis. 2026)",
+            "Klik tombol \"Simpan Bulan Bonus\""
+        ],
+        "expected_result": "Sistem menyimpan bulan bonus, menampilkan notifikasi sukses (mis. \"Data has been saved\" atau \"Bulan Bonus disimpan\"), lalu redirect/refresh ke halaman /employee-bonus dan baris bulan+tahun tampil pada tabel",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBMON_002",
+        "module": "HR - Bonus Karyawan (Simpan Bulan Bonus)",
+        "test_case": "Validasi: bulan dan tahun wajib dipilih",
+        "test_steps": [
+            "Buka halaman /employee-bonus",
+            "Biarkan Bulan kosong lalu klik \"Simpan Bulan Bonus\"",
+            "Pilih Bulan, biarkan Tahun kosong lalu klik \"Simpan Bulan Bonus\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan peringatan sesuai kondisi: \"Bulan tidak boleh kosong.\" atau \"Tahun tidak boleh kosong.\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBMON_003",
+        "module": "HR - Bonus Karyawan (Simpan Bulan Bonus)",
+        "test_case": "Simpan bulan bonus ditolak ketika bulan dan tahun sudah pernah dibuat",
+        "test_steps": [
+            "Buka halaman /employee-bonus",
+            "Pilih Bulan dan Tahun yang sudah ada pada tabel",
+            "Klik tombol \"Simpan Bulan Bonus\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error \"Telah dibuat, silahkan buat pada bulan dan tahun yang berbeda\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBGEN_001",
+        "module": "HR - Bonus Karyawan (Generate Bonus)",
+        "test_case": "Generate bonus karyawan berhasil untuk karyawan terpilih",
+        "test_steps": [
+            "Buka halaman /employee-bonus",
+            "Pada bulan bonus yang diproses, klik aksi Generate (masuk ke halaman /employee-bonus/{id}/generate)",
+            "Pada tab \"Belum Dibuat\", centang 1-2 karyawan/outlet yang akan digenerate",
+            "Pastikan kolom Target terisi angka; jika kosong isi Target > 0",
+            "Klik tombol \"Generate\""
+        ],
+        "expected_result": "Sistem menyimpan data bonus (toastr sukses, mis. \"Data has been saved\") dan halaman reload; pada tab \"Sudah Dibuat\" data karyawan tampil dengan Status \"Belum dibayar\" dan Nominal terisi sesuai pengaturan bonus (Bonus Setting) berdasarkan total penjualan vs target",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBGEN_002",
+        "module": "HR - Bonus Karyawan (Generate Bonus)",
+        "test_case": "Worst case: generate ditekan tanpa memilih karyawan",
+        "test_steps": [
+            "Buka halaman /employee-bonus/{id}/generate",
+            "Pastikan tidak ada checkbox karyawan yang dicentang pada tab \"Belum Dibuat\"",
+            "Klik tombol \"Generate\""
+        ],
+        "expected_result": "Sistem menolak proses generate dan menampilkan peringatan bahwa minimal 1 karyawan harus dipilih; tidak ada data bonus yang dibuat",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBGEN_003",
+        "module": "HR - Bonus Karyawan (Generate Bonus)",
+        "test_case": "Worst case: generate ditolak ketika target kosong atau 0",
+        "test_steps": [
+            "Buka halaman /employee-bonus/{id}/generate",
+            "Centang 1 karyawan/outlet pada tab \"Belum Dibuat\"",
+            "Kosongkan Target atau isi Target = 0",
+            "Klik tombol \"Generate\""
+        ],
+        "expected_result": "Sistem menolak proses generate dan menampilkan pesan error (mis. target harus > 0); tidak ada data bonus yang tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBGEN_004",
+        "module": "HR - Bonus Karyawan (Payment Bonus)",
+        "test_case": "Payment bonus berhasil mengubah status menjadi \"Sudah dibayar\"",
+        "test_steps": [
+            "Buka halaman /employee-bonus/{id}/generate",
+            "Pindah ke tab \"Sudah Dibuat\" dan pastikan ada minimal 1 data dengan status \"Belum dibayar\"",
+            "Jika perlu, sesuaikan Nominal bonus pada baris yang masih \"Belum dibayar\"",
+            "Klik tombol \"Pembayaran\" (membuka modal konfirmasi)",
+            "Isi \"Tanggal Jurnal\"",
+            "Klik tombol \"Pembayaran\" pada modal"
+        ],
+        "expected_result": "Sistem memproses payment dan menampilkan notifikasi sukses (mis. \"Data has been saved\"/\"Pembayaran Bonus Berhasil\"); pada tabel status berubah menjadi \"Sudah dibayar\", field Nominal menjadi non-editable, dan tombol hapus pada baris tersebut tidak bisa digunakan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBGEN_005",
+        "module": "HR - Bonus Karyawan (Payment Bonus)",
+        "test_case": "Validasi: payment ditolak ketika Tanggal Jurnal kosong",
+        "test_steps": [
+            "Buka halaman /employee-bonus/{id}/generate",
+            "Klik tombol \"Pembayaran\" untuk membuka modal",
+            "Biarkan \"Tanggal Jurnal\" kosong",
+            "Klik tombol \"Pembayaran\" pada modal"
+        ],
+        "expected_result": "Sistem menolak proses payment dan menampilkan pesan error/peringatan bahwa Tanggal Jurnal wajib diisi; tidak ada data yang berubah menjadi \"Sudah dibayar\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "EBGEN_006",
+        "module": "HR - Bonus Karyawan (Generate Bonus)",
+        "test_case": "Worst case: generate ulang pada bulan yang sama tidak membuat data duplikat",
+        "test_steps": [
+            "Buka halaman /employee-bonus/{id}/generate",
+            "Pastikan ada data bonus bulan tersebut yang sudah dibuat untuk karyawan tertentu (tab \"Sudah Dibuat\")",
+            "Kembali ke tab \"Belum Dibuat\" lalu pilih karyawan yang sama (jika masih muncul/terpilih)",
+            "Klik tombol \"Generate\" lagi"
+        ],
+        "expected_result": "Sistem tidak membuat data bonus ganda untuk karyawan dan bulan yang sama (menolak dengan pesan bahwa data sudah ada, atau melakukan update tanpa menambah baris duplikat); data tetap konsisten",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "FAMAP_001",
+        "module": "Aktiva - Pemetaan Aktiva (Tambah)",
+        "test_case": "Tombol tambah pemetaan aktiva muncul untuk user yang memiliki permission",
+        "test_steps": [
+            "Pastikan login menggunakan user yang memiliki permission \"view_maaping_asset\" dan \"add_maaping_asset\"",
+            "Buka halaman /maaping-asset melalui menu header \"Pemetaan Aktiva\"",
+            "Perhatikan area tombol di kanan atas tabel"
+        ],
+        "expected_result": "Tombol \"Tambah Pemetaan Aktiva\" tampil dan ketika diklik akan membuka modal \"Tambah Pemetaan Aktiva\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "FAMAP_002",
+        "module": "Aktiva - Pemetaan Aktiva (Tambah)",
+        "test_case": "Tambah pemetaan aktiva berhasil",
+        "test_steps": [
+            "Buka halaman /maaping-asset",
+            "Klik tombol \"Tambah Pemetaan Aktiva\"",
+            "Pilih Akun pada dropdown (akun tipe Detail)",
+            "Isi Umur Aktiva (mis. 36)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan pemetaan aktiva (toastr sukses, mis. \"Data has been saved\") lalu redirect/refresh ke /maaping-asset; baris pemetaan baru tampil pada tabel dengan nomor akun, nama akun, dan umur aktiva dalam bulan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "FAMAP_003",
+        "module": "Aktiva - Pemetaan Aktiva (Tambah)",
+        "test_case": "Validasi: simpan ditolak ketika Akun belum dipilih",
+        "test_steps": [
+            "Buka halaman /maaping-asset",
+            "Klik tombol \"Tambah Pemetaan Aktiva\"",
+            "Biarkan field Akun kosong",
+            "Isi Umur Aktiva (mis. 12)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error (toastr error) bahwa Akun wajib dipilih; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "FAMAP_004",
+        "module": "Aktiva - Pemetaan Aktiva (Tambah)",
+        "test_case": "Worst case: simpan ditolak ketika Umur Aktiva tidak valid",
+        "test_steps": [
+            "Buka halaman /maaping-asset",
+            "Klik tombol \"Tambah Pemetaan Aktiva\"",
+            "Pilih Akun",
+            "Isi Umur Aktiva dengan nilai tidak valid (mis. kosong, huruf, atau angka negatif)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error (toastr error) bahwa Umur Aktiva harus berupa angka bulan yang valid; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AST_001",
+        "module": "Aktiva - Aktiva (Tambah)",
+        "test_case": "Tambah aktiva berhasil dari sumber data Invoice (pembelian ke supplier)",
+        "test_steps": [
+            "Buka halaman /asset/create melalui menu header Penyusutan > Aktiva, lalu klik tombol Tambah (atau akses langsung URL)",
+            "Pilih Sumber Data Aktiva = \"Invoice (pembelian ke supplier)\"",
+            "Pilih salah satu item invoice pada dropdown Pembelian Aktiva",
+            "Pastikan field Tanggal Perolehan, Nominal, Keterangan, Kode Aktiva, dan COA terisi otomatis sesuai invoice (jika tidak, isi manual seperlunya)",
+            "Pilih Depot",
+            "Pilih Akun Biaya dan Akumulasi Penyusutan",
+            "Isi Tgl.Mulai Penyusutan",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan aktiva (toastr sukses, mis. \"Data has been saved\") lalu redirect ke /asset; data aktiva baru muncul di daftar aktiva dan item invoice yang dipakai berubah statusnya menjadi sudah diamortisasi (tidak muncul lagi sebagai pilihan saat membuat aktiva)",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AST_002",
+        "module": "Aktiva - Aktiva (Tambah)",
+        "test_case": "Tambah aktiva berhasil dari sumber data Journal",
+        "test_steps": [
+            "Buka halaman /asset/create",
+            "Pilih Sumber Data Aktiva = \"Journal\"",
+            "Pilih salah satu jurnal pada dropdown Jurnal Aktiva",
+            "Pastikan field (Tanggal Perolehan, Nominal, Keterangan, Kode Aktiva, COA) terisi otomatis dari data jurnal",
+            "Pilih Depot",
+            "Pilih Akun Biaya dan Akumulasi Penyusutan",
+            "Isi Tgl.Mulai Penyusutan",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan aktiva dan menandai jurnal sebagai sudah diproses aktiva (status_aktiva menjadi 1 / terhubung ke aktiva); jurnal tersebut tidak muncul lagi sebagai pilihan di halaman tambah aktiva",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AST_003",
+        "module": "Aktiva - Aktiva (Tambah)",
+        "test_case": "Validasi: Akun Biaya dan Akumulasi Penyusutan wajib dipilih",
+        "test_steps": [
+            "Buka halaman /asset/create",
+            "Isi minimal data yang diperlukan (mis. pilih sumber data aktiva dan pilih salah satu data)",
+            "Biarkan Akun Biaya kosong lalu klik \"Simpan\"",
+            "Pilih Akun Biaya, biarkan Akumulasi Penyusutan kosong lalu klik \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak simpan dan menampilkan peringatan sesuai kondisi: \"COA tidak boleh kosong.\" atau \"SOF tidak boleh kosong.\"; data aktiva tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AST_004",
+        "module": "Aktiva - Aktiva (Tambah)",
+        "test_case": "Worst case: simpan ditolak ketika mapping akun aktiva tidak ditemukan",
+        "test_steps": [
+            "Buka halaman /asset/create",
+            "Isi form hingga siap disimpan",
+            "Pastikan field COA (fixed asset) tidak terpilih, atau skenario lain mapping akun aktiva terhapus setelah halaman dibuka",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan pesan error (toastr error) seperti \"Account Fixed Asset tidak ditemukan\" atau \"Mapping akun aktiva tidak ditemukan\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "AST_005",
+        "module": "Aktiva - Aktiva (Tambah)",
+        "test_case": "Validasi hasil: umur aktiva dan biaya penyusutan per bulan mengikuti Pemetaan Aktiva",
+        "test_steps": [
+            "Buat 1 aktiva baru melalui /asset/create dengan nilai perolehan yang mudah dihitung (mis. 12.000.000)",
+            "Pastikan COA (fixed asset) yang dipilih memiliki Umur Aktiva tertentu di menu Pemetaan Aktiva (mis. 12 bulan)",
+            "Setelah tersimpan dan redirect ke /asset, buka detail amortisasi aktiva tersebut (menu detail amortisasi /asset/{id}/detail-amortisasi)"
+        ],
+        "expected_result": "Umur aktiva mengikuti pemetaan (mis. 12 bulan) dan biaya penyusutan per bulan sesuai perhitungan nilai perolehan dibagi umur aktiva (mis. 12.000.000 / 12 = 1.000.000 per bulan); data penyusutan tampil konsisten pada detail amortisasi",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETEMAIL_001",
+        "module": "Pengaturan - Email (Log Cetak Penjualan)",
+        "test_case": "Tambah email penerima log cetak penjualan berhasil",
+        "test_steps": [
+            "Buka halaman /setting/email (menu header Pengaturan lalu tab Email)",
+            "Pada tabel Email Log Cetak Penjualan, isi email pada baris input (mis. email-penerima@gmail.com)",
+            "Klik tombol \"Tambah\""
+        ],
+        "expected_result": "Sistem menyimpan email penerima (POST /print-log-notifier-emails); baris email baru muncul pada tabel dan field input menjadi kosong kembali",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETEMAIL_002",
+        "module": "Pengaturan - Email (Log Cetak Penjualan)",
+        "test_case": "Validasi: tambah email ditolak ketika kosong atau format tidak valid",
+        "test_steps": [
+            "Buka halaman /setting/email",
+            "Biarkan input email kosong lalu klik \"Tambah\"",
+            "Isi input dengan format tidak valid (mis. \"abc\" atau \"abc@\") lalu klik \"Tambah\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan toastr error dari server-side validation (mis. \"The given data was invalid.\"); data tidak bertambah",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETEMAIL_003",
+        "module": "Pengaturan - Email (Log Cetak Penjualan)",
+        "test_case": "Edit email penerima berhasil (update via Enter)",
+        "test_steps": [
+            "Buka halaman /setting/email",
+            "Pada salah satu baris email, klik ikon pensil",
+            "Ubah nilai email pada input edit",
+            "Tekan tombol Enter pada keyboard"
+        ],
+        "expected_result": "Sistem mengupdate email (POST /print-log-notifier-emails/{id}); mode edit tertutup dan teks email pada tabel berubah sesuai nilai terbaru",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETEMAIL_004",
+        "module": "Pengaturan - Email (Log Cetak Penjualan)",
+        "test_case": "Hapus email penerima berhasil",
+        "test_steps": [
+            "Buka halaman /setting/email",
+            "Klik ikon trash pada salah satu baris email",
+            "Pada dialog konfirmasi, klik tombol \"Delete\""
+        ],
+        "expected_result": "Sistem menghapus email (DELETE /print-log-notifier-emails/{id}); baris email hilang dari tabel",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETSYNC_001",
+        "module": "Pengaturan - Sinkronisasi Kantor",
+        "test_case": "Muat daftar kantor HRD dan tampilkan dropdown kantor untuk setiap depot",
+        "test_steps": [
+            "Buka halaman /setting/sync-office (menu header Pengaturan lalu tab Sinkronisasi Kantor)",
+            "Tunggu hingga data kantor HRD selesai dimuat"
+        ],
+        "expected_result": "Sistem menampilkan dropdown \"Pilih Kantor\" untuk setiap depot dan opsi dropdown terisi dari API HRD; jika loading, teks \"Loading..\" tampil sampai data selesai dimuat",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETSYNC_002",
+        "module": "Pengaturan - Sinkronisasi Kantor",
+        "test_case": "Simpan pemetaan depot ke kantor HRD berhasil",
+        "test_steps": [
+            "Buka halaman /setting/sync-office",
+            "Pilih kantor HRD pada salah satu depot (ubah nilai dropdown Kantor)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan perubahan (POST /setting/save-sync-office) dan menampilkan toastr sukses \"Perubahan berhasil disimpan\", lalu halaman reload; setelah reload, pilihan kantor untuk depot tersebut tetap sesuai perubahan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETSYNC_003",
+        "module": "Pengaturan - Sinkronisasi Kantor",
+        "test_case": "Worst case: simpan dengan beberapa depot belum dipilih kantornya",
+        "test_steps": [
+            "Buka halaman /setting/sync-office",
+            "Biarkan beberapa depot tetap pada pilihan \"Pilih Kantor\" (kosong)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem tetap dapat menyimpan data pemetaan (termasuk depot yang kosong) tanpa error; setelah reload, depot yang tidak dipilih tetap menampilkan \"Pilih Kantor\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETSYNC_004",
+        "module": "Pengaturan - Sinkronisasi Kantor",
+        "test_case": "Worst case: gagal ambil data kantor HRD menampilkan error",
+        "test_steps": [
+            "Buka halaman /setting/sync-office saat koneksi ke API HRD bermasalah / API down",
+            "Amati tampilan saat proses load kantor"
+        ],
+        "expected_result": "Sistem menampilkan toastr error (mis. \"Something wrong...\" atau pesan dari API); dropdown kantor tidak terisi dan user tidak ter-block oleh loading selamanya",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETWATER_001",
+        "module": "Pengaturan - Kontrol Air",
+        "test_case": "Simpan pengaturan kontrol air berhasil (TDS & pH)",
+        "test_steps": [
+            "Buka halaman /setting/water-control (menu header Pengaturan lalu tab Kontrol Air)",
+            "Isi TDS batas bawah dan batas atas (mis. 10 dan 20)",
+            "Isi pH batas bawah dan batas atas (mis. 6.5 dan 8)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menyimpan perubahan (POST /setting/save-water-control) dan menampilkan toastr sukses \"Perubahan berhasil disimpan\"",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETWATER_002",
+        "module": "Pengaturan - Kontrol Air",
+        "test_case": "Validasi: semua isian TDS & pH wajib diisi",
+        "test_steps": [
+            "Buka halaman /setting/water-control",
+            "Kosongkan salah satu field (mis. TDS batas atas atau pH batas bawah)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak proses simpan dan menampilkan toastr warning \"Semua isian harus diisi\"; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETWATER_003",
+        "module": "Pengaturan - Kontrol Air",
+        "test_case": "Worst case: nilai batas bawah lebih besar dari batas atas",
+        "test_steps": [
+            "Buka halaman /setting/water-control",
+            "Isi TDS batas bawah lebih besar dari batas atas (mis. 30 dan 10)",
+            "Isi pH batas bawah lebih besar dari batas atas (mis. 9 dan 7)",
+            "Klik tombol \"Simpan\""
+        ],
+        "expected_result": "Sistem menolak penyimpanan dan menampilkan pesan error/peringatan bahwa batas bawah harus <= batas atas; data tidak tersimpan",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETWATER_004",
+        "module": "Pengaturan - Kontrol Air",
+        "test_case": "Persist: nilai kontrol air tetap tersimpan setelah halaman dibuka ulang",
+        "test_steps": [
+            "Simpan pengaturan kontrol air",
+            "Refresh halaman /setting/water-control atau buka ulang halaman tersebut"
+        ],
+        "expected_result": "Field TDS/pH menampilkan nilai terakhir yang tersimpan (persist di database) dan tidak kembali kosong/default",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETCONT_001",
+        "module": "Pengaturan - Kontak",
+        "test_case": "Daftar kontak berhasil dimuat (DataTables server-side) dan bisa dicari",
+        "test_steps": [
+            "Buka halaman /setting/contact (menu header Pengaturan lalu tab Kontak)",
+            "Pastikan tabel Daftar Kontak menampilkan data (atau tampil kosong jika belum ada)",
+            "Gunakan input pencarian \"Cari nama, email, telepon...\" lalu ketik kata kunci"
+        ],
+        "expected_result": "Tabel memuat data dari endpoint /setting/contact/datatables-data dan hasil pencarian memfilter daftar kontak sesuai kata kunci",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETCONT_002",
+        "module": "Pengaturan - Kontak",
+        "test_case": "Tambah kontak baru berhasil",
+        "test_steps": [
+            "Buka halaman /setting/contact",
+            "Isi Nama, Telepon (format 62...), dan (opsional) Email",
+            "Klik tombol \"Tambah Kontak\""
+        ],
+        "expected_result": "Sistem menyimpan kontak (POST /setting/contact) dan menampilkan toastr sukses \"Kontak berhasil ditambahkan\"; form ter-reset dan tabel Daftar Kontak reload menampilkan kontak baru",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETCONT_003",
+        "module": "Pengaturan - Kontak",
+        "test_case": "Validasi: nama dan telepon wajib diisi",
+        "test_steps": [
+            "Buka halaman /setting/contact",
+            "Kosongkan Nama lalu klik tombol \"Tambah Kontak\"",
+            "Isi Nama, kosongkan Telepon lalu klik tombol \"Tambah Kontak\""
+        ],
+        "expected_result": "Browser menolak submit karena field required (Nama/Telepon) belum diisi; tidak ada request penyimpanan dan data tidak bertambah",
+        "actual_result": "",
+        "status": ""
+    },
+    {
+        "case_id": "SETCONT_004",
+        "module": "Pengaturan - Kontak",
+        "test_case": "Hapus kontak berhasil dari daftar",
+        "test_steps": [
+            "Buka halaman /setting/contact",
+            "Klik tombol hapus pada salah satu baris (ikon trash)",
+            "Pada dialog konfirmasi, klik \"Hapus\""
+        ],
+        "expected_result": "Sistem menghapus kontak (DELETE /setting/contact/{id}), menampilkan toastr sukses \"Kontak berhasil dihapus\", dan tabel reload sehingga kontak hilang dari daftar",
+        "actual_result": "",
+        "status": ""
+    }
+]
