@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# pnpm local store (used by Cursor sandbox)
+.pnpm-store
+
+# Environment variables
+.env
+.env.*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

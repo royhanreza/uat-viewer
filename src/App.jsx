@@ -1,11 +1,13 @@
 import DataTable from './components/DataTable'
-import './App.css'
+import { ToastProvider } from './components/ui/toast'
 
 function App() {
   return (
-    <div className="app">
-      <DataTable />
-    </div>
+    <ToastProvider>
+      <div className="min-h-screen bg-background">
+        <DataTable />
+      </div>
+    </ToastProvider>
   )
 }
 
